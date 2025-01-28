@@ -411,3 +411,41 @@ ADD PRIMARY KEY (id);
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+ ### Add and Remove Foreign Key
+ ![Foreign Key](images/foreign_key.png)
+SQL to **add a foreign key** to a table:
+```sql
+ALTER TABLE <table_name>
+ADD CONSTRAINT <constraint_name>
+FOREIGN KEY (column_name) REFERENCES <referenced_table>(referenced_column);
+```
+SQL to **remove a foreign key** and its index from a table:
+```sql
+ALTER TABLE <table_name>
+DROP FOREIGN KEY <constraint_name>,
+DROP INDEX <constraint_name>;
+```
+**Note:**
+The ``constraint_name`` is necessary when you want to **delete** or **modify** a constraint in a table. Without a unique name for the constraint, you won't be able to reference it later for changes. When adding a constraint, **it is a good practice** to assign a descriptive name for easy identification.
+
+```sql
+-- Describe the structure of the "people" table
+-- Ensure "people" has a primary key on "id"
+DESCRIBE people;
+
+-- Describe the structure of the "addresses" table
+-- Ensure "addresses" has a primary key on "id"
+DESCRIBE addresses;
+
+-- Add a foreign key to "people" linking "address_id" to "addresses(id)"
+ALTER TABLE people
+ADD CONSTRAINT FK_PeopleAddress
+FOREIGN KEY (address_id) REFERENCES addresses(id);
+
+-- Remove the foreign key and its index from "people"
+ALTER TABLE people
+DROP FOREIGN KEY FK_PeopleAddress,
+DROP INDEX FK_PeopleAddress;
+```
+
