@@ -1,5 +1,25 @@
-# MySQL
-## Docker
+# Table of contents
+
+  - [Section 1: Course Introduction](#section-1-course-introduction)
+  - [Section 2: Installation and Setup](#section-2-installation-and-setup)
+    - [Docker](#docker)
+    - [MySQL Workbench](#mysql-workbench)
+    - [Commands](#commands)
+  - [Secction 3: Data Definition Language](#secction-3-data-definition-language)
+    - [Data Definition Language (DDL)](#data-definition-language-ddl)
+    - [Data Manipulation Language (DML)](#data-manipulation-language-dml)
+    - [Data Types](#data-types)
+    - [Creating the Coffee Store Database](#creating-the-coffee-store-database)
+    - [Modifying Tables: Adding and Removing Columns](#modifying-tables-adding-and-removing-columns)
+    - [Deleting Tables](#deleting-tables)
+    - [Truncating Tables](#truncating-tables)
+  - [Section 4: More On Alter Table](#section-4-more-on-alter-table)
+    - [Creating Our Test Database](#creating-our-test-database)
+
+## Section 1: Course Introduction
+
+## Section 2: Installation and Setup
+### Docker
 docker-compose.yml
 
 ```dockerfile
@@ -32,7 +52,7 @@ If you want to start the services again, you can use the following command:
 ```shell
 docker-compose start
 ```
-## MySQL Workbench
+### MySQL Workbench
 1. Open **MySQL Workbench**
 2. Create a New Connection
 Click on **+** next to "MySQL Connections" on the main screen.
@@ -70,7 +90,7 @@ Start over
 docker-compose up -d
 ```
 
-# Commands
+### Commands
 
 Create a new database named 'test'
 ```sql
@@ -258,4 +278,34 @@ SELECT * FROM test;
 -- Step 6: Remove all data from the "test" table without deleting its structure
 -- This operation clears the table while keeping its definition intact
 TRUNCATE TABLE test;
+```
+## Section 4: More On Alter Table
+### Creating Our Test Database
+```sql
+CREATE DATABASE test;
+
+USE test;
+
+CREATE TABLE addresses (
+  id INT,
+  house_number INT,
+  city VARCHAR(20),
+  postcode VARCHAR(7)
+);
+
+CREATE TABLE people (
+  id INT,
+  first_name VARCHAR(20),
+  last_name VARCHAR(20),
+  address_id INT
+);
+
+CREATE TABLE pets (
+  id INT,
+  name VARCHAR(20),
+  species VARCHAR(20),
+  owner_id INT
+);
+
+SHOW TABLES;
 ```
