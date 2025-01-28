@@ -163,3 +163,85 @@ CREATE TABLE orders (
 );
 ```
 [Script Database](https://github.com/ovidiocbba/MySQL/blob/main/script_database/creating_the_coffee_store_database.sql)
+
+### Modifying Tables: Adding and Removing Columns
+```sql
+-- How to add and remove columns from a table
+
+-- Select the database to work with
+USE coffee_store;
+
+-- Show the structure of the "products" table to understand its current columns
+DESCRIBE products;
+
+-- Add a new column "coffe_origin" to the "products" table
+ALTER TABLE products
+ADD COLUMN coffe_origin VARCHAR(30);
+```
+### Deleting Tables
+```sql
+DROP TABLE [tableName];
+```
+- Completely deletes the **table**, its **data**, and its **structure** from the database.
+- Use this when you no longer need the table.
+
+```sql
+-- How to delete tables forom a database
+-- Step 1: Create a new database
+CREATE DATABASE example;
+
+-- Step 2: Switch to the "example" database to work within it
+USE example;
+
+-- Step 3: Create a table named "test" with three columns:
+CREATE TABLE test (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30),
+    age INT
+);
+
+-- Step 4: Display the structure of the "test" table to verify its columns
+DESCRIBE test;
+
+-- Step 5: List all tables in the current database to confirm the "test" table exists
+SHOW TABLES;
+
+-- Step 6: Delete (drop) the "test" table from the database
+DROP TABLE test;
+
+-- Step 7: Attempt to describe the "test" table again
+-- This will produce an error because the table no longer exists
+DESCRIBE test;
+```
+###  Truncating Tables
+```sql
+TRUNCATE TABLE [tableName];
+```
+- Removes all rows but retains the table structure for future use.
+- Use this when you need to empty the table but plan to reuse it.
+
+```sql
+-- Step 1: Create a new database named "example"
+CREATE DATABASE example;
+
+-- Step 2: Switch to the "example" database to work within it
+USE example;
+
+-- Step 3: Create a table named "test"
+CREATE TABLE test (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30),
+    age INT
+);
+
+-- Step 4: Insert sample data into the "test" table
+INSERT INTO test (name, age) 
+VALUES  ('Ben', 19), ('Simon', 28), ('Claire', 23);
+
+-- Step 5: Retrieve and display all records from the "test" table
+SELECT * FROM test;
+
+-- Step 6: Remove all data from the "test" table without deleting its structure
+-- This operation clears the table while keeping its definition intact
+TRUNCATE TABLE test;
+```
