@@ -52,11 +52,12 @@ If you want to start the services again, you can use the following command:
 ```shell
 docker-compose start
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
 ### MySQL Workbench
 1. Open **MySQL Workbench**
 2. Create a New Connection
@@ -94,7 +95,7 @@ Start over
 ```shell
 docker-compose up -d
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -118,7 +119,7 @@ Delete the 'test' database
 ```sql
 DROP DATABASE test;
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -166,7 +167,7 @@ SQL commands that are used to **manipulate** the data.
 **Enumeration Type (ENUM)**   
 **ENUM** → status ENUM('active', 'inactive', 'pending') → **Example**: 'active'
 
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -205,7 +206,8 @@ CREATE TABLE orders (
 );
 ```
 [Script Database](https://github.com/ovidiocbba/MySQL/blob/main/script_database/creating_the_coffee_store_database.sql)
-<div style="text-align: right; margin-top: 20px;">
+
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -239,7 +241,7 @@ DESCRIBE products;
 ALTER TABLE products
 ADD COLUMN coffe_origin VARCHAR(30);
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -280,7 +282,7 @@ DROP TABLE test;
 -- This will produce an error because the table no longer exists
 DESCRIBE test;
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -318,7 +320,7 @@ SELECT * FROM test;
 -- This operation clears the table while keeping its definition intact
 TRUNCATE TABLE test;
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -354,7 +356,7 @@ CREATE TABLE pets (
 
 SHOW TABLES;
 ```
-<div style="text-align: right; margin-top: 20px;">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
