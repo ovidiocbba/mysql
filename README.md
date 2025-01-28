@@ -156,11 +156,11 @@ CREATE TABLE customers
 
 CREATE TABLE orders (
 	id INT auto_increment PRIMARY KEY,
-  product_id INT,
-  customer_id INT,
-  order_time DATETIME,
-  FOREIGN KEY (product_id) REFERENCES products(id),
-  FOREIGN KEY (customer_id) REFERENCES customers(id)
+	product_id INT,
+	customer_id INT,
+	order_time DATETIME,
+	FOREIGN KEY (product_id) REFERENCES products(id),
+	FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 ```
 [Script Database](https://github.com/ovidiocbba/MySQL/blob/main/script_database/creating_the_coffee_store_database.sql)
