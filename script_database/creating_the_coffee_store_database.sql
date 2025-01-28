@@ -12,8 +12,7 @@ CREATE TABLE products (
 
 SHOW TABLES;
 
-CREATE TABLE customers
-(
+CREATE TABLE customers(
   id INT auto_increment PRIMARY KEY,
   first_name VARCHAR(30),
   last_name VARCHAR(30),
