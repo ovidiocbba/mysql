@@ -129,4 +129,4 @@ SQL commands that are used to **manipulate** the data.
 
 ### Creating the Coffee Store Database
 
-[Script Database](script_database\creating_the_coffee_dtore_database.sql)
+[Script Database](script_database/creating_the_coffee_dtore_database.sqlcreating_the_coffee_dtore_database.sql)
