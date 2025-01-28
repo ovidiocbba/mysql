@@ -52,6 +52,11 @@ If you want to start the services again, you can use the following command:
 ```shell
 docker-compose start
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 ### MySQL Workbench
 1. Open **MySQL Workbench**
 2. Create a New Connection
@@ -89,6 +94,11 @@ Start over
 ```shell
 docker-compose up -d
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
 ### Commands
 
@@ -108,6 +118,12 @@ Delete the 'test' database
 ```sql
 DROP DATABASE test;
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ## Secction 3: Data Definition Language
 ### Data Definition Language (DDL)
 SQL commands that are used to **define the structure of the database** objects.  
@@ -150,6 +166,12 @@ SQL commands that are used to **manipulate** the data.
 **Enumeration Type (ENUM)**   
 **ENUM** → status ENUM('active', 'inactive', 'pending') → **Example**: 'active'
 
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Creating the Coffee Store Database
 
 ```sql
@@ -183,6 +205,11 @@ CREATE TABLE orders (
 );
 ```
 [Script Database](https://github.com/ovidiocbba/MySQL/blob/main/script_database/creating_the_coffee_store_database.sql)
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
 ### Modifying Tables: Adding and Removing Columns
 ```sql
@@ -212,6 +239,12 @@ DESCRIBE products;
 ALTER TABLE products
 ADD COLUMN coffe_origin VARCHAR(30);
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Deleting Tables
 ```sql
 DROP TABLE [tableName];
@@ -247,6 +280,12 @@ DROP TABLE test;
 -- This will produce an error because the table no longer exists
 DESCRIBE test;
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ###  Truncating Tables
 ```sql
 TRUNCATE TABLE [tableName];
@@ -279,6 +318,12 @@ SELECT * FROM test;
 -- This operation clears the table while keeping its definition intact
 TRUNCATE TABLE test;
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ## Section 4: More On Alter Table
 ### Creating Our Test Database
 ```sql
@@ -309,3 +354,8 @@ CREATE TABLE pets (
 
 SHOW TABLES;
 ```
+<div style="text-align: right; margin-top: 20px;">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
