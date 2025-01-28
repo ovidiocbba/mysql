@@ -1,4 +1,5 @@
 # MySQL
+## Docker
 docker-compose.yml
 
 ```dockerfile
@@ -31,7 +32,7 @@ If you want to start the services again, you can use the following command:
 ```shell
 docker-compose start
 ```
-
+## MySQL Workbench
 1. Open **MySQL Workbench**
 2. Create a New Connection
 Click on **+** next to "MySQL Connections" on the main screen.
@@ -125,3 +126,7 @@ SQL commands that are used to **manipulate** the data.
 
 **Binary Types**  
 **BLOB** → image BLOB → **Example**: (binary data)  
+
+### Creating the Coffee Store Database
+
+[Script Database](script_database\creating_the_coffee_dtore_database.sql)
