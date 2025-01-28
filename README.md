@@ -166,6 +166,20 @@ CREATE TABLE orders (
 
 ### Modifying Tables: Adding and Removing Columns
 ```sql
+ALTER TABLE [tableName] ADD COLUMN [columnName] [dataType]([size]);
+```
+```sql
+ALTER TABLE [tableName]
+```
+- Specifies the table you want to modify.   
+```sql
+ADD COLUMN [columnName] [dataType]([size])
+```
+- Adds a new column to the table.
+- [dataType] defines the type of data the column will store (e.g., VARCHAR, INT, etc.).
+- [size] (optional) specifies the maximum size of the data, if applicable.
+
+```sql
 -- How to add and remove columns from a table
 
 -- Select the database to work with
