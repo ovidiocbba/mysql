@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server      # Name the container
+    environment:                      # Define environment variables
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"                   # Map port 3306
+    volumes:
+      - mysql-data:/var/lib/mysql     # Persist data using a named volume
+
+volumes:
+  mysql-data:                         # Define the named volume for MySQL data
