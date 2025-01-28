@@ -15,6 +15,7 @@
     - [Truncating Tables](#truncating-tables)
   - [Section 4: More On Alter Table](#section-4-more-on-alter-table)
     - [Creating Our Test Database](#creating-our-test-database)
+    - [Add and Remove Primary Key](#add-and-remove-primary-key)
 
 ## Section 1: Course Introduction
 
@@ -355,6 +356,48 @@ CREATE TABLE pets (
 );
 
 SHOW TABLES;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Add and Remove Primary Key
+SQL  to **add** a **primary key** to a table.
+```sql
+ALTER TABLE <table_name>
+ADD PRIMARY KEY (column_name);
+```
+
+SQL to **remove** a **primary key** from a table.
+```sql
+ALTER TABLE <table_name>
+DROP PRIMARY KEY;
+```
+
+```sql
+-- Describe the structure of the "addresses" table
+DESCRIBE addresses;
+
+-- Add a primary key to the "addresses" table using the "id" column
+ALTER TABLE addresses
+ADD PRIMARY KEY (id);
+
+-- Remove the primary key from the "addresses" table
+ALTER TABLE addresses
+DROP PRIMARY KEY;
+
+-- Modify the "id" column in the "addresses" table to be of type INT
+ALTER TABLE addresses
+MODIFY id INT;
+
+-- Describe the structure of the "people" table
+DESCRIBE people;
+
+-- Add a primary key to the "people" table using the "id" column
+ALTER TABLE people
+ADD PRIMARY KEY (id);
 ```
 <div align="right">
   <strong>
