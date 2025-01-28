@@ -376,6 +376,13 @@ ALTER TABLE <table_name>
 DROP PRIMARY KEY;
 ```
 
+SQL to **modify** a **column's** data type:
+```sql
+ALTER TABLE <table_name>
+MODIFY <column_name> <new_data_type>;
+```
+Changes the data type of an existing column to a new one, for example, from **VARCHAR** to **INT**.
+
 ```sql
 -- Describe the structure of the "addresses" table
 DESCRIBE addresses;
