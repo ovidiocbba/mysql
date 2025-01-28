@@ -89,7 +89,7 @@ DROP DATABASE test;
 ```
 ## Secction 3: Data Definition Language
 ### Data Definition Language (DDL)
-SQL commands that are used to define the **structure** of the database objects.  
+SQL commands that are used to **define the structure of the database** objects.  
 
 **CREATE**: Create a database, and its tables, columns and indexes.  
 **ALTER:** Alter the structure of the database objects - add or remove columns, indexes, etc.  
@@ -103,3 +103,25 @@ SQL commands that are used to **manipulate** the data.
 **INSERT**: Insert data into a table.   
 **UPDATE**: Change the data in columns of a table (or tables).  
 **DELETE**: Delete rows in a table (or tables).  
+
+### Data Types  
+**Numeric Types**  
+**INT** → age INT → **Example**: 25  
+**DECIMAL(m, d)** → price DECIMAL(10, 2) → **Example**: 1234.56  
+**FLOAT** → temperature FLOAT → **Example**: 36.5  
+
+**String Types**  
+**VARCHAR(n)** → name VARCHAR(50) → **Example**: 'John Doe'  
+**CHAR(n)** → code CHAR(5) → **Example**: 'A1234'  
+**TEXT** → description TEXT → **Example**: 'Long text here'  
+
+**Date and Time Types**  
+**DATE** → dob DATE → **Example**: '1990-01-01'  
+**DATETIME** → created_at DATETIME → **Example**: '2025-01-28 12:34:56'  
+**TIME** → duration TIME → **Example**: '02:30:00'  
+
+**Boolean**  
+**BOOLEAN** → is_active BOOLEAN → **Example**: 1  
+
+**Binary Types**  
+**BLOB** → image BLOB → **Example**: (binary data)  
