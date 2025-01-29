@@ -1,5 +1,5 @@
 # Table of contents
-
+- [Table of contents](#table-of-contents)
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -16,6 +16,9 @@
   - [Section 4: More On Alter Table](#section-4-more-on-alter-table)
     - [Creating Our Test Database](#creating-our-test-database)
     - [Add and Remove Primary Key](#add-and-remove-primary-key)
+    - [Add and Remove Foreign Key](#add-and-remove-foreign-key)
+    - [Add Unique Constraint](#add-unique-constraint)
+    - [Change Column Name](#change-column-name)
 
 ## Section 1: Course Introduction
 
@@ -510,13 +513,13 @@ SQL to **rename a column** without changing its data type:
 ALTER TABLE <table_name>
 RENAME COLUMN <old_column_name> TO <new_column_name>;
 ```
-This simply **renames the column** while keeping the data type unchanged.
+This simply **renames the column** while keeping the data type unchanged.  
+**Example**
 ```sql
 ALTER TABLE pets
 RENAME COLUMN animal_type TO species;
 ```
 Renames the **animal_type** column back to **species**.
-
 
 ```sql
 DESCRIBE pets;
@@ -530,7 +533,7 @@ RENAME COLUMN animal_type TO species;
 ```
 
  ![Change column_name](images/change_column_name.png)
- 
+
  <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
