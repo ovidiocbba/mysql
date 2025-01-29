@@ -490,3 +490,49 @@ DROP INDEX u_species;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Change Column Name
+SQL to **rename a column** and **change its data type**:
+```sql
+ALTER TABLE <table_name>
+CHANGE <old_column_name> <new_column_name> <new_data_type>;
+```
+This **renames the column** and **updates its data type** at the same time.  
+**Example**
+```sql
+ALTER TABLE pets
+CHANGE species animal_type VARCHAR(20);
+```
+Renames the **species** column to **animal_type** and changes its **data type** to **VARCHAR(20)**.
+
+SQL to **rename a column** without changing its data type:
+```sql
+ALTER TABLE <table_name>
+RENAME COLUMN <old_column_name> TO <new_column_name>;
+```
+This simply **renames the column** while keeping the data type unchanged.
+```sql
+ALTER TABLE pets
+RENAME COLUMN animal_type TO species;
+```
+Renames the **animal_type** column back to **species**.
+
+
+```sql
+DESCRIBE pets;
+
+-- How to change a column's name
+ALTER TABLE pets
+CHANGE species animal_type VARCHAR(20);
+
+ALTER TABLE pets
+RENAME COLUMN animal_type TO species;
+```
+
+ ![Change column_name](images/change_column_name.png)
+ 
+ <div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
