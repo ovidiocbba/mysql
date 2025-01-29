@@ -298,12 +298,19 @@ DESCRIBE test;
 </div>
 
 ###  Truncating Tables
+SQL to **Truncate** a Table
 ```sql
-TRUNCATE TABLE [tableName];
+TRUNCATE TABLE <tableName>;
+```
+**Example**
+```sql
+TRUNCATE TABLE test;
 ```
 - Removes all rows but retains the table structure for future use.
-- Use this when you need to empty the table but plan to reuse it.
+- Use this when you need to **empty the table** but plan to reuse it.
 
+
+**Practice**
 ```sql
 -- Step 1: Create a new database named "example"
 CREATE DATABASE example;
@@ -377,20 +384,35 @@ SQL  to **add** a **primary key** to a table.
 ALTER TABLE <table_name>
 ADD PRIMARY KEY (<column_name>);
 ```
+**Example**
+```sql
+ALTER TABLE addresses
+ADD PRIMARY KEY (id);
+```
 
 SQL to **remove** a **primary key** from a table.
 ```sql
 ALTER TABLE <table_name>
 DROP PRIMARY KEY;
 ```
-
+**Example**
+```sql
+ALTER TABLE addresses
+DROP PRIMARY KEY;
+```
 SQL to **modify** a **column's** data type:
 ```sql
 ALTER TABLE <table_name>
 MODIFY <column_name> <new_data_type>;
 ```
 Changes the data type of an existing column to a new one, for example, from **VARCHAR** to **INT**.
+**Example**
+```sql
+ALTER TABLE addresses
+MODIFY id INT;
+```
 
+**Practice**
 ```sql
 -- Describe the structure of the "addresses" table
 DESCRIBE addresses;
@@ -428,15 +450,28 @@ ALTER TABLE <table_name>
 ADD CONSTRAINT <constraint_name>
 FOREIGN KEY (<column_name>) REFERENCES <referenced_table>(<referenced_column>);
 ```
+**Example**
+```sql
+ALTER TABLE people
+ADD CONSTRAINT FK_PeopleAddress
+FOREIGN KEY (address_id) REFERENCES addresses(id);
+```
 SQL to **remove a foreign key** and its index from a table:
 ```sql
 ALTER TABLE <table_name>
 DROP FOREIGN KEY <constraint_name>,
 DROP INDEX <constraint_name>;
 ```
+**Example**
+```sql
+ALTER TABLE people
+DROP FOREIGN KEY FK_PeopleAddress,
+DROP INDEX FK_PeopleAddress;
+```
 **Note:**
 The ``constraint_name`` is necessary when you want to **delete** or **modify** a constraint in a table. Without a unique name for the constraint, you won't be able to reference it later for changes. When adding a constraint, **it is a good practice** to assign a descriptive name for easy identification.
 
+**Practice**
 ```sql
 -- Describe the structure of the "people" table
 -- Ensure "people" has a primary key on "id"
@@ -471,15 +506,26 @@ ADD CONSTRAINT <constraint_name> UNIQUE (<column_name>);
 ```
 Ensures that all values in the specified column are unique, preventing duplicate entries.    
 **Example**  
-Let's say we have a **users** table, and we want to ensure that emails are **unique** to prevent duplicate accounts.
+```sql
+ALTER TABLE pets
+ADD CONSTRAINT u_species UNIQUE (species);
+```
+**Example 2**  
+Let's say we have a **users** table, and we want to ensure that emails are **unique** to **prevent duplicate accounts**.
 
 SQL to **remove a unique constraint** from a column:
 ```sql
 ALTER TABLE <table_name>
 DROP INDEX <constraint_name>;
 ```
-Deletes the unique constraint, allowing duplicate values in the column.
+**Example**  
+```sql
+ALTER TABLE pets
+DROP INDEX u_species;
+```
+Deletes **the unique constraint,** allowing duplicate values in the column.
 
+**Practice**
 ```sql
 DESCRIBE pets;
 
@@ -506,6 +552,7 @@ ALTER TABLE <table_name>
 CHANGE <old_column_name> <new_column_name> <new_data_type>;
 ```
 This **renames the column** and **updates its data type** at the same time.  
+
 **Example**
 ```sql
 ALTER TABLE pets
@@ -519,6 +566,7 @@ ALTER TABLE <table_name>
 RENAME COLUMN <old_column_name> TO <new_column_name>;
 ```
 This simply **renames the column** while keeping the data type unchanged.  
+
 **Example**
 ```sql
 ALTER TABLE pets
@@ -526,6 +574,7 @@ RENAME COLUMN animal_type TO species;
 ```
 Renames the **animal_type** column back to **species**.
 
+**Practice**
 ```sql
 DESCRIBE pets;
 
