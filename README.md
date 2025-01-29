@@ -1,5 +1,5 @@
 # Table of contents
-- [Table of contents](#table-of-contents)
+ - [Table of contents](#table-of-contents)
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -19,6 +19,7 @@
     - [Add and Remove Foreign Key](#add-and-remove-foreign-key)
     - [Add Unique Constraint](#add-unique-constraint)
     - [Change Column Name](#change-column-name)
+
 
 ## Section 1: Course Introduction
 
@@ -593,3 +594,32 @@ RENAME COLUMN animal_type TO species;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Exercises
+1. Add a primary key to the **id** field in the **pets** table.
+```sql
+DESCRIBE  pets;
+
+ALTER TABLE pets
+ADD PRIMARY KEY(id);
+```
+ ![Exercise](images/exercise_1.png)
+
+2. Check the **people** table, and **add a primary key** to the **id** field if it doesn’t already have one.
+```sql
+DESCRIBE people;
+
+ALTER TABLE people
+ADD PRIMARY KEY (id);
+```
+ ![Exercise](images/exercise_2.png)  
+
+3. Add a **foreign key** to the **owner_id** field of the **pets** table, referencing the **id** field in the **people** table.
+```sql
+DESCRIBE pets;
+DESCRIBE people;
+ 
+ALTER TABLE pets
+ADD CONSTRAINT FK_PetsPeople
+FOREIGN KEY (owner_id) REFERENCES people(id);
+```
