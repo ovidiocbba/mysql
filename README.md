@@ -133,18 +133,18 @@ DROP DATABASE test;
 ### Data Definition Language (DDL)
 SQL commands that are used to **define the structure of the database** objects.  
 
-**CREATE**: Create a database, and its tables, columns and indexes.  
-**ALTER:** Alter the structure of the database objects - add or remove columns, indexes, etc.  
-**DROP:** Delete tables, indexes, and even the entire database.  
+**CREATE**: Create a **database**, and its **tables**, columns and indexes.  
+**ALTER:** Alter the structure of the database objects - **add or remove columns**, indexes, etc.  
+**DROP:** Delete **tables**, indexes, and even the entire database.  
 **RENAME:** Rename a table.  
-**TRUNCATE:** Clear out the contents of a table. Effectively the same as deleting and re-creating the table.  
+**TRUNCATE:** **Clear** out the **contents** of a table. Effectively the same as deleting and re-creating the table.  
 ### Data Manipulation Language (DML)  
 SQL commands that are used to **manipulate** the data.    
 
-**SELECT**: Query the database to retrieve rows of data.  
+**SELECT**: Query the database to **retrieve rows** of data.  
 **INSERT**: Insert data into a table.   
 **UPDATE**: Change the data in columns of a table (or tables).  
-**DELETE**: Delete rows in a table (or tables).  
+**DELETE**: Delete **rows** in a table (or tables).  
 
 ### Data Types  
 **Numeric Types**  
@@ -218,20 +218,19 @@ CREATE TABLE orders (
 </div>
 
 ### Modifying Tables: Adding and Removing Columns
+SQL to **Add a Column** to a Table
 ```sql
-ALTER TABLE [tableName] ADD COLUMN [columnName] [dataType]([size]);
+ALTER TABLE <tableName>
+ADD COLUMN <columnName> <dataType>(<size>);
 ```
-```sql
-ALTER TABLE [tableName]
-```
-- Specifies the table you want to modify.   
-```sql
-ADD COLUMN [columnName] [dataType]([size])
-```
-- Adds a new column to the table.
-- [dataType] defines the type of data the column will store (e.g., VARCHAR, INT, etc.).
-- [size] (optional) specifies the maximum size of the data, if applicable.
+Adds a **new column** to an existing table with the specified **data type** and **size**.  
 
+**Example**  
+```sql
+ALTER TABLE products
+ADD COLUMN coffe_origin VARCHAR(30);
+```
+**Practice**  
 ```sql
 -- How to add and remove columns from a table
 
@@ -252,12 +251,18 @@ ADD COLUMN coffe_origin VARCHAR(30);
 </div>
 
 ### Deleting Tables
+SQL to **delete** (or drop) a table
 ```sql
-DROP TABLE [tableName];
+DROP TABLE <tableName>;
+```
+**Example**
+```sql
+DROP TABLE test;
 ```
 - Completely deletes the **table**, its **data**, and its **structure** from the database.
-- Use this when you no longer need the table.
+- Use this when **you no longer need the table.**
 
+**Practice**
 ```sql
 -- How to delete tables forom a database
 -- Step 1: Create a new database
