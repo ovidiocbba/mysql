@@ -597,7 +597,7 @@ RENAME COLUMN animal_type TO species;
 
 ### Change Column Data Type
 
-1. SQL to **Rename a column** and **change its data type**.
+#### 1. SQL to **Rename a column** and **change its data type**.  
 Use this command when you want to perform both operations with a single command.
 ```sql
 ALTER TABLE <table name>
@@ -608,7 +608,7 @@ CHANGE COLUMN <current_column_name> <new_column_name> <datatype>;
 ALTER TABLE addresses
 CHANGE COLUMN city city VARCHAR(30);
 ```
-2. SQL to **Rename a column**.
+#### 2. SQL to **Rename a column**.  
 Use this command when you don’t want to also change the column’s data type.
 ```sql
 ALTER TABLE <table name>
@@ -619,7 +619,7 @@ RENAME COLUMN <current_column_name> TO <new_column_name>;
 ALTER TABLE pets
 RENAME COLUMN animal_type TO species;
 ```
-3. SQL to **Change a column’s data type**.
+#### 3. SQL to **Change a column’s data type**.  
 Use this command when you don’t want to **rename the column** at the same time.
 ```sql
 ALTER TABLE <table name>
