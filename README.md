@@ -1,5 +1,4 @@
 # Table of contents
- - [Table of contents](#table-of-contents)
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -19,7 +18,11 @@
     - [Add and Remove Foreign Key](#add-and-remove-foreign-key)
     - [Add Unique Constraint](#add-unique-constraint)
     - [Change Column Name](#change-column-name)
-
+    - [Change Column Data Type](#change-column-data-type)
+      - [1. SQL to 'Rename a column' and 'change its data type'.](#1-sql-to-rename-a-column-and-change-its-data-type)
+      - [2. SQL to 'Rename a column'.](#2-sql-to-rename-a-column)
+      - [3. SQL to 'Change a column’s data type'.](#3-sql-to-change-a-columns-data-type)
+    - [Exercises](#exercises)
 
 ## Section 1: Course Introduction
 
@@ -597,7 +600,7 @@ RENAME COLUMN animal_type TO species;
 
 ### Change Column Data Type
 
-#### 1. SQL to **Rename a column** and **change its data type**.  
+#### 1. SQL to 'Rename a column' and 'change its data type'.  
 Use this command when you want to perform both operations with a single command.
 ```sql
 ALTER TABLE <table name>
@@ -608,7 +611,7 @@ CHANGE COLUMN <current_column_name> <new_column_name> <datatype>;
 ALTER TABLE addresses
 CHANGE COLUMN city city VARCHAR(30);
 ```
-#### 2. SQL to **Rename a column**.  
+#### 2. SQL to 'Rename a column'.  
 Use this command when you don’t want to also change the column’s data type.
 ```sql
 ALTER TABLE <table name>
@@ -619,7 +622,7 @@ RENAME COLUMN <current_column_name> TO <new_column_name>;
 ALTER TABLE pets
 RENAME COLUMN animal_type TO species;
 ```
-#### 3. SQL to **Change a column’s data type**.  
+#### 3. SQL to 'Change a column’s data type'.  
 Use this command when you don’t want to **rename the column** at the same time.
 ```sql
 ALTER TABLE <table name>
@@ -630,8 +633,6 @@ MODIFY COLUMN <column name> <data type>;
 ALTER TABLE addresses
 MODIFY COLUMN city CHAR(25);
 ```
-
-
 ### Exercises
 1. Add a primary key to the **id** field in the **pets** table.
 ```sql
