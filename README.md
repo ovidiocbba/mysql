@@ -589,7 +589,7 @@ RENAME COLUMN animal_type TO species;
 
  ![Change column_name](images/change_column_name.png)
 
- <div align="right">
+<div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
@@ -605,6 +605,12 @@ ADD PRIMARY KEY(id);
 ```
 ![Exercise](images/exercise_1.png)
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 2. Check the **people** table, and **add a primary key** to the **id** field if it doesn’t already have one.
 ```sql
 DESCRIBE people;
@@ -613,6 +619,12 @@ ALTER TABLE people
 ADD PRIMARY KEY (id);
 ```
 ![Exercise](images/exercise_2.png)  
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
 3. Add a **foreign key** to the **owner_id** field of the **pets** table, referencing the **id** field in the **people** table.
 ```sql
@@ -625,6 +637,12 @@ FOREIGN KEY (owner_id) REFERENCES people(id);
 ```
 ![Exercise](images/exercise_3.png)  
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 4. Add **a column** named **email** to the **people** table.
 ```sql
 DESCRIBE people;
@@ -633,6 +651,12 @@ ALTER TABLE people
 ADD COLUMN email VARCHAR(20);
 ```
 ![Exercise](images/exercise_4.png)  
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
 5. Add a **unique constraint** to the **email** column in the **people** table.
 ```sql
@@ -643,6 +667,12 @@ ADD CONSTRAINT u_email UNIQUE (email);
 ```
 ![Exercise](images/exercise_5.png)  
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 6. **Rename** the **name** column in the **pets** table to **first_name**.
 ```sql
 DESCRIBE pets;
@@ -652,6 +682,12 @@ RENAME COLUMN name TO first_name;
 ```
 ![Exercise](images/exercise_6.png)  
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 7. Change the **postcode** data type to **CHAR(7)** in the **addresses** table.
 ```sql
 DESCRIBE addresses;
@@ -660,3 +696,9 @@ ALTER TABLE addresses
 MODIFY COLUMN postcode CHAR(7);
 ```
 ![Exercise](images/exercise_7.png)  
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
