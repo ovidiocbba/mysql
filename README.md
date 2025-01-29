@@ -477,3 +477,4 @@ ALTER TABLE pets
 DROP INDEX u_species;
 ```
  ![Add Unique constraint](images/add_unique_constraint.png)
+
