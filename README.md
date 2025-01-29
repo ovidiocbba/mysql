@@ -675,6 +675,20 @@ FOREIGN KEY (owner_id) REFERENCES people(id);
 ```
 ![Exercise](images/exercise_3.png)  
 
+**Practice**
+```sql
+-- How to change a column's data type
+DESCRIBE addresses;
+
+ALTER TABLE addresses
+CHANGE COLUMN city city VARCHAR(30);
+
+ALTER TABLE addresses
+MODIFY COLUMN city CHAR(25);
+
+ALTER TABLE addresses
+MODIFY COLUMN city int;
+```
 <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
