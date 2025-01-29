@@ -1146,3 +1146,38 @@ SELECT * FROM products
 WHERE price = 3.00
 OR coffee_origin = 'Colombia';
 ```
+### Using Inequality Symbols
+```sql
+USE coffee_store;
+ 
+/*
+!= ... not equal to.
+<> ... not equal to (i.e. greater than or less than).
+>  ... greater than.
+>= ... greater than or equal to.
+<  ... less than.
+<= ... less than or equal to.
+*/
+ 
+SELECT * FROM products;
+
+SELECT * FROM products
+-- WHERE price != 3.00;
+WHERE price <> 3.00;
+
+SELECT * FROM products
+WHERE price > 3.00;
+
+SELECT * FROM products
+WHERE price <= 3.00;
+
+SELECT * FROM products
+WHERE name < 'D';
+```
+- The **<** operator performs **a lexicographical comparison**, meaning it compares the strings based on their alphabetical order.
+
+  All names that start with letters before **'D'** (like 'A', 'B', or 'C') **will be selected**.
+
+- **'!='** and **'<>'**
+Both operators **perform the same operation**: they return TRUE if the two operands are not equal and FALSE if they are equal.
+
