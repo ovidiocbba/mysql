@@ -448,6 +448,13 @@ ALTER TABLE people
 DROP FOREIGN KEY FK_PeopleAddress,
 DROP INDEX FK_PeopleAddress;
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Add Unique Constraint
 SQL to **add a unique constraint** to a column:
 ```sql
@@ -478,3 +485,8 @@ DROP INDEX u_species;
 ```
  ![Add Unique constraint](images/add_unique_constraint.png)
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
