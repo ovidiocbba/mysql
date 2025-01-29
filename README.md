@@ -367,7 +367,7 @@ SHOW TABLES;
 SQL  to **add** a **primary key** to a table.
 ```sql
 ALTER TABLE <table_name>
-ADD PRIMARY KEY (column_name);
+ADD PRIMARY KEY (<column_name>);
 ```
 
 SQL to **remove** a **primary key** from a table.
@@ -418,7 +418,7 @@ SQL to **add a foreign key** to a table:
 ```sql
 ALTER TABLE <table_name>
 ADD CONSTRAINT <constraint_name>
-FOREIGN KEY (column_name) REFERENCES <referenced_table>(referenced_column);
+FOREIGN KEY (<column_name>) REFERENCES <referenced_table>(<referenced_column>);
 ```
 SQL to **remove a foreign key** and its index from a table:
 ```sql
