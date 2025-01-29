@@ -1118,3 +1118,31 @@ VALUES (3, 18, '2022-01-01 01:40:42'),
        (2, 3, '2023-04-30 08:43:40'),
        (3, 15, '2023-04-30 19:43:25');
 ```
+### Section 6: Selecting from a Table
+#### Select Statement
+```sql
+USE coffee_store;
+
+SELECT * FROM customers;
+
+SELECT last_name FROM customers;
+
+SELECT last_name, phone_number FROM customers;
+```
+#### Where Clause
+```sql
+USE coffee_store;
+
+SELECT * FROM products;
+
+SELECT * FROM products
+WHERE coffee_origin = 'Colombia';
+
+SELECT * FROM products
+WHERE price = 3.00
+AND coffee_origin = 'Colombia';
+
+SELECT * FROM products
+WHERE price = 3.00
+OR coffee_origin = 'Colombia';
+```
