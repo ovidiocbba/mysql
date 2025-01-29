@@ -632,7 +632,7 @@ DESCRIBE pets;
 DESCRIBE people;
  
 ALTER TABLE pets
-ADD CONSTRAINT FK_PetsPeople
+ADD CONSTRAINT FK_PetsOwner
 FOREIGN KEY (owner_id) REFERENCES people(id);
 ```
 ![Exercise](images/exercise_3.png)  
