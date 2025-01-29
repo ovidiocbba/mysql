@@ -232,7 +232,7 @@ Adds a **new column** to an existing table with the specified **data type** and 
 **Example**  
 ```sql
 ALTER TABLE products
-ADD COLUMN coffe_origin VARCHAR(30);
+ADD COLUMN coffee_origin VARCHAR(30);
 ```
 **Practice**  
 ```sql
@@ -244,9 +244,9 @@ USE coffee_store;
 -- Show the structure of the "products" table to understand its current columns
 DESCRIBE products;
 
--- Add a new column "coffe_origin" to the "products" table
+-- Add a new column "coffee_origin" to the "products" table
 ALTER TABLE products
-ADD COLUMN coffe_origin VARCHAR(30);
+ADD COLUMN coffee_origin VARCHAR(30);
 ```
 <div align="right">
   <strong>
@@ -754,3 +754,36 @@ MODIFY COLUMN postcode CHAR(7);
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Section 5: Data Manipulation Language
+### Inserting Data Into Tables
+#### 1. SQL for 'Inserting Data' into a Table
+This command is used to insert new records into a table, specifying values for each column in the table
+```sql
+INSERT INTO <table_name> (<column1>, <column2>, <column3>, ... <column_n>)
+VALUES (value1, value2, value3, ... value_n);
+```
+**Example**
+```sql
+INSERT INTO products (name, price, coffee_origin)
+VALUES ('Espresso', 2.50, 'Brazil');
+```
+**Practice**
+```sql
+USE coffee_store;
+
+SHOW tables;
+
+SELECT * FROM products;
+
+INSERT INTO products (name, price, coffee_origin)
+VALUES ('Espresso', 2.50, 'Brazil');
+
+INSERT INTO products (name, price, coffee_origin)
+VALUES ('Macchiato', 3.00, 'Brazil'), ('Cappuccino', 3.50, 'Costa Rica');
+
+INSERT INTO products (name, price, coffee_origin)
+VALUES ('Latte', 3.50, 'Indonesia'), ('Americano', 3.00, 'Brazil'),
+('Flat White', 3.50, 'Indonesia'), ('Filter', 3.00, 'India');
+```
+![Inserting Data Into Tables](images/5_inserting_data_into_tables.png) 
