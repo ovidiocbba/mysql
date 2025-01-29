@@ -448,4 +448,32 @@ ALTER TABLE people
 DROP FOREIGN KEY FK_PeopleAddress,
 DROP INDEX FK_PeopleAddress;
 ```
+### Add Unique Constraint
+SQL to **add a unique constraint** to a column:
+```sql
+ALTER TABLE <table_name>
+ADD CONSTRAINT <constraint_name> UNIQUE (<column_name>);
+```
+Ensures that all values in the specified column are unique, preventing duplicate entries.    
+**Example**  
+Let's say we have a **users** table, and we want to ensure that emails are **unique** to prevent duplicate accounts.
 
+SQL to **remove a unique constraint** from a column:
+```sql
+ALTER TABLE <table_name>
+DROP INDEX <constraint_name>;
+```
+Deletes the unique constraint, allowing duplicate values in the column.
+
+```sql
+DESCRIBE pets;
+
+-- How to add a unique constraint to a column
+ALTER TABLE pets
+ADD CONSTRAINT u_species UNIQUE (species);
+
+-- How to remove a unique constraint from a column
+ALTER TABLE pets
+DROP INDEX u_species;
+```
+ ![Add Unique constraint](images/add_unique_constraint.png)
