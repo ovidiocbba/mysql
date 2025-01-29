@@ -1181,3 +1181,15 @@ WHERE name < 'D';
 - **'!='** and **'<>'**
 Both operators **perform the same operation**: they return TRUE if the two operands are not equal and FALSE if they are equal.
 
+### Null Values
+```sql
+USE coffee_store;
+ 
+SELECT * FROM customers;
+
+SELECT * FROM customers
+WHERE phone_number is null;
+
+SELECT * FROM customers
+WHERE phone_number is not null;
+```
