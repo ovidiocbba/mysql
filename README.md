@@ -787,3 +787,37 @@ VALUES ('Latte', 3.50, 'Indonesia'), ('Americano', 3.00, 'Brazil'),
 ('Flat White', 3.50, 'Indonesia'), ('Filter', 3.00, 'India');
 ```
 ![Inserting Data Into Tables](images/5_inserting_data_into_tables.png) 
+
+### Updating Data in Tables
+#### SQL for 'Updating Data' in a Table
+This command is used to **update existing records** in a table by specifying the column and new value, with an optional condition to match which records should be updated.
+```sql
+UPDATE <table name>
+SET <column name> = <value>
+WHERE <column name> = <match>;
+```
+**Example**
+```sql
+UPDATE products
+SET coffee_origin = 'Sri Lanka'
+WHERE id = 7;
+```
+**Practice**
+```sql
+ SELECT * FROM products;
+
+UPDATE products
+SET coffee_origin = 'Sri Lanka'
+WHERE id = 7;
+
+SET sql_safe_updates = false;
+
+UPDATE products
+SET price = 3.25, coffee_origin = 'Ethiopia'
+WHERE name = 'Americano';
+
+UPDATE products
+SET coffee_origin = 'Colombia'
+WHERE coffee_origin = 'Brazil';
+```
+**Note**: The command SET sql_safe_updates = false; disables the "safe updates" mode in MySQL, which can make your queries potentially risky. 
