@@ -1469,7 +1469,7 @@ WHERE coffee_origin IN ('Colombia', 'Indonesia')
 ORDER BY name ASC;
 ```
 
-1. From the **orders** table, select all the orders from **February 2023**, for **customers** with IDs of **19, 20, 21 or 24**.   
+2. From the **orders** table, select all the orders from **February 2023**, for **customers** with IDs of **19, 20, 21 or 24**.   
    
 **Option 1**
 ```sql
@@ -1484,7 +1484,7 @@ WHERE order_time BETWEEN '2023-02-01' AND '2023-02-28 23:59:59.999999'
 AND customer_id IN (19, 20, 21, 24);
 ```
 
-1. From the customers table, select the first name and phone number of all customers whose last name contains the pattern 'ar'.
+3. From the customers table, select the first name and phone number of all customers whose last name contains the pattern 'ar'.
 
 ```sql
 SELECT first_name, phone_number
