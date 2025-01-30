@@ -1540,3 +1540,63 @@ ORDER BY customer_id;
   </strong>
 </div>
 
+### Limit
+#### SQL for 'Limiting the Number of Results' in a Query
+The **LIMIT** clause is used to restrict the number of rows returned by a query. This is useful when working with large datasets and when only a specific number of records are needed.
+```sql
+SELECT * 
+FROM <table_name>  
+LIMIT <number_of_rows>;
+```
+**Example 1**
+```sql
+SELECT * FROM customers  
+LIMIT 5;  
+```
+This example retrieves the first 5 records from the customers table. If there are more than 5 records in the table, only the first 5 will be returned.
+
+**Example 2 (LIMIT with OFFSET)**
+```sql
+SELECT * FROM customers  
+LIMIT 5 OFFSET 5; 
+``` 
+This example **skips the first 5** records and then retrieves the **next 5 records** from the customers table. This is useful for pagination (e.g., fetching the second page of results in a set of 5 records per page).
+
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT * FROM customers;
+
+SELECT * FROM customers
+LIMIT 5;
+
+SELECT * FROM customers
+LIMIT 5 OFFSET 5;
+
+SELECT * FROM customers
+-- LIMIT 12, 3;
+LIMIT 3 OFFSET 12;
+
+SELECT * FROM customers
+LIMIT `row_count`;  -- only return row-count rows.
+
+SELECT * FROM customers
+LIMIT `offset`, `row_count`;  -- return row_count rows, starting from row 5.
+
+SELECT * FROM customers
+LIMIT `row_count` OFFSET `offset`;  -- same as above.
+
+SELECT * FROM customers
+LIMIT 10 OFFSET 5;
+
+SELECT * FROM customers
+ORDER BY last_name
+LIMIT 10;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
