@@ -1346,3 +1346,58 @@ WHERE last_name BETWEEN 'A' AND 'M';
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Like
+This command retrieves all records from a table where a specific column matches a given pattern using the LIKE operator
+
+The LIKE operator is used for pattern matching in SQL, typically with the % and _ wildcards:
+
+% (percent sign) matches any sequence of characters (including none).
+_ (underscore) matches exactly one character
+
+```sql
+SELECT * FROM <table_name>  
+WHERE <column_name> LIKE '<pattern>';  
+```
+**Example**
+```sql
+SELECT * FROM customers
+WHERE last_name LIKE 'W%';
+```
+![Like](images/like.png)
+
+**Practice**
+```sql
+USE coffee_store;
+ 
+/*
+%  match any number of characters.
+ 
+_  match just one character.
+*/
+ 
+SELECT * FROM customers
+WHERE last_name LIKE 'W%';
+
+SELECT * FROM customers
+WHERE last_name LIKE '%o%';
+
+SELECT * FROM customers
+WHERE first_name LIKE '%o%';
+
+SELECT * FROM customers
+WHERE first_name LIKE '_o_';
+
+SELECT * FROM customers
+WHERE first_name LIKE '_o__';
+
+SELECT * FROM products;
+
+SELECT * FROM products
+WHERE price LIKE '3%';
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
