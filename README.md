@@ -1,4 +1,5 @@
 # Table of contents
+- [Table of contents](#table-of-contents)
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -23,6 +24,38 @@
       - [2. SQL to 'Rename a column'.](#2-sql-to-rename-a-column)
       - [3. SQL to 'Change a column’s data type'.](#3-sql-to-change-a-columns-data-type)
     - [Exercises](#exercises)
+  - [Section 5: Data Manipulation Language](#section-5-data-manipulation-language)
+    - [Inserting Data Into Tables](#inserting-data-into-tables)
+    - [Updating Data in Tables](#updating-data-in-tables)
+    - [Deleting Data from Tables](#deleting-data-from-tables)
+    - [Completing the Coffee Store Database](#completing-the-coffee-store-database)
+  - [Section 6: Selecting from a Table](#section-6-selecting-from-a-table)
+      - [Select Statement](#select-statement)
+      - [Where Clause](#where-clause)
+    - [Using Inequality Symbols](#using-inequality-symbols)
+    - [Null Values](#null-values)
+    - [In and Not In](#in-and-not-in)
+    - [Between](#between)
+      - [SQL for 'Selecting Data' with a Range Condition](#sql-for-selecting-data-with-a-range-condition)
+    - [Like](#like)
+    - [Order By](#order-by)
+      - [SQL for 'Sorting Data' in a Query](#sql-for-sorting-data-in-a-query)
+    - [Distinct](#distinct)
+      - [SQL for 'Selecting Unique Values' from a Column](#sql-for-selecting-unique-values-from-a-column)
+    - [Limit](#limit)
+      - [SQL for 'Limiting the Number of Results' in a Query](#sql-for-limiting-the-number-of-results-in-a-query)
+    - [Column Name Alias](#column-name-alias)
+  - [Section 7: Selecting From Multiple Tables](#section-7-selecting-from-multiple-tables)
+    - [Inner Join](#inner-join)
+      - [SQL for 'Joining Tables' with INNER JOIN](#sql-for-joining-tables-with-inner-join)
+    - [Left Join](#left-join)
+      - [SQL for 'Joining Tables' with LEFT JOIN](#sql-for-joining-tables-with-left-join)
+    - [Right Join](#right-join)
+      - [SQL for 'Joining Tables' with RIGHT JOIN](#sql-for-joining-tables-with-right-join)
+
+
+
+
 
 ## Section 1: Course Introduction
 
@@ -757,7 +790,7 @@ MODIFY COLUMN postcode CHAR(7);
 
 ## Section 5: Data Manipulation Language
 ### Inserting Data Into Tables
-#### 1. SQL for 'Inserting Data' into a Table
+**SQL for 'Inserting Data' into a Table**
 This command is used to insert new records into a table, specifying values for each column in the table
 ```sql
 INSERT INTO <table_name> (<column1>, <column2>, <column3>, ... <column_n>)
@@ -795,7 +828,7 @@ VALUES ('Latte', 3.50, 'Indonesia'), ('Americano', 3.00, 'Brazil'),
 </div>
 
 ### Updating Data in Tables
-#### SQL for 'Updating Data' in a Table
+**SQL for 'Updating Data' in a Table**
 This command is used to **update existing records** in a table by specifying the column and new value, with an optional condition to match which records should be updated.
 ```sql
 UPDATE <table name>
@@ -835,7 +868,7 @@ WHERE coffee_origin = 'Brazil';
 </div>
 
 ### Deleting Data from Tables
-#### SQL for 'Deleting Data' from a Table
+**SQL for 'Deleting Data' from a Table**
 This command is used to **delete** records from a table based on a **specific condition**.
 ```sql
 DELETE FROM <table_name>  
@@ -876,7 +909,7 @@ DELETE FROM people;
   </strong>
 </div>
 
-#### Completing the Coffee Store Database
+### Completing the Coffee Store Database
 ```sql
 USE coffee_store;
 
@@ -1150,7 +1183,7 @@ VALUES (3, 18, '2022-01-01 01:40:42'),
   </strong>
 </div>
 
-### Section 6: Selecting from a Table
+## Section 6: Selecting from a Table
 #### Select Statement
 ```sql
 USE coffee_store;
@@ -1279,7 +1312,7 @@ WHERE gender = 'M' AND phone_number IS NULL;
 </div>
 
 ### In and Not In
-#### 1. SQL for 'Selecting Data' with a Condition
+**SQL for 'Selecting Data' with a Condition**
 This command retrieves all records from a table where a specific column matches one of multiple given values.
 ```sql
 SELECT * FROM <table_name>  
@@ -1311,7 +1344,7 @@ WHERE first_name NOT IN ('Katie', 'John', 'George');
 </div>
 
 ### Between
-#### 1. SQL for 'Selecting Data' with a Range Condition
+**SQL for 'Selecting Data' with a Range Condition**
 This command gets all rows from a table where a column's value is inside a given range, including the start and end values.
 ```sql
 SELECT * FROM <table_name>  
@@ -1403,7 +1436,7 @@ WHERE price LIKE '3%';
 </div>
 
 ### Order By
-#### SQL for 'Sorting Data' in a Query
+**SQL for 'Sorting Data' in a Query**
 This command retrieves all records from a table and orders the results based on a specified column. The **ORDER BY** clause is used to sort the data in ascending (**ASC**) or descending (**DESC**) order.
 
 **ASC (Ascending)** – Default order, sorts from smallest to largest (A-Z, 0-9).  
@@ -1499,7 +1532,7 @@ WHERE last_name = '%ar%';
 </div>
 
 ### Distinct
-#### SQL for 'Selecting Unique Values' from a Column
+**SQL for 'Selecting Unique Values' from a Column**
 The DISTINCT keyword is used to retrieve unique (non-duplicate) values from a specific column in a table. This helps in filtering out repeated entries and showing only distinct results.
 
 ```sql
@@ -1541,7 +1574,7 @@ ORDER BY customer_id;
 </div>
 
 ### Limit
-#### SQL for 'Limiting the Number of Results' in a Query
+**SQL for 'Limiting the Number of Results' in a Query**
 The **LIMIT** clause is used to restrict the number of rows returned by a query. This is useful when working with large datasets and when only a specific number of records are needed.
 ```sql
 SELECT * 
@@ -1666,7 +1699,7 @@ FROM  products;
 
 ## Section 7: Selecting From Multiple Tables
 ### Inner Join
-#### SQL for 'Joining Tables' with INNER JOIN
+**SQL for 'Joining Tables' with INNER JOIN**
 The **INNER JOIN** clause is used to combine rows from two or more tables based on a related column between them. It returns only the rows where there is a match in both tables. If there is no match, the row is not included in the result set.
 
 ```sql
@@ -1760,6 +1793,7 @@ ORDER BY c.id;
   </strong>
 </div>
 
+### Right Join
 #### SQL for 'Joining Tables' with RIGHT JOIN
 The **RIGHT JOIN** retrieves all records from the **right** table (orders in this case) and the matched records from the **left** table (customers). If there is no match, the result will still include all rows from the **right** table, with **NULL** values for columns from the **left** table.
 
