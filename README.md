@@ -1348,12 +1348,12 @@ WHERE last_name BETWEEN 'A' AND 'M';
 </div>
 
 ### Like
-This command retrieves all records from a table where a specific column matches a given pattern using the LIKE operator
+This command retrieves all records from a table where a specific column matches a given pattern using the **LIKE** operator
 
-The LIKE operator is used for pattern matching in SQL, typically with the % and _ wildcards:
+The LIKE operator is used for **pattern matching** in SQL, typically with the **%** and **_** wildcards:
 
-% (percent sign) matches any sequence of characters (including none).
-_ (underscore) matches exactly one character
+**%** (percent sign) matches any sequence of characters (including none).  
+**_** (underscore) matches exactly one character
 
 ```sql
 SELECT * FROM <table_name>  
