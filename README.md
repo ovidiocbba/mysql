@@ -1636,3 +1636,30 @@ SELECT id, name coffee, price, coffee_origin country FROM products;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+**Exercise 6 - Part 2**
+1. From the customers table, select all the distinct last names, and order them alphabetically (**from A to Z**).
+```sql
+SELECT DISTINCT last_name
+FROM customers
+ORDER BY last_name ASC;
+```
+2. Select the first 4 orders placed for the product with ID 3, in February 2023.
+```sql
+SELECT *
+FROM orders
+WHERE product_id = 3 AND order_time LIKE '2023-02-%'
+ORDER BY order_time
+LIMIT 4;
+```
+3. Select the **name**, **price** and **coffee origin** from the **products** table, but rename the **price** column to **retail price** in the result set.
+```sql
+SELECT name, price AS retail_price, coffee_origin
+FROM  products
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
