@@ -1453,6 +1453,7 @@ ORDER BY order_time DESC;
 
 **Exercise 6**
 1. From the products table, select the name and price of all products with a coffee origin equal to Colombia or Indonesia. Sort the results by name, from A-Z.  
+
 **Option 1**
 ```sql
 SELECT name, price
@@ -1468,7 +1469,7 @@ WHERE coffee_origin IN ('Colombia', 'Indonesia')
 ORDER BY name ASC;
 ```
 
-2. From the **orders** table, select all the orders from **February 2023**, for **customers** with IDs of **19, 20, 21 or 24**.   
+1. From the **orders** table, select all the orders from **February 2023**, for **customers** with IDs of **19, 20, 21 or 24**.   
    
 **Option 1**
 ```sql
@@ -1490,3 +1491,9 @@ SELECT first_name, phone_number
 FROM customers
 WHERE last_name = '%ar%';
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
