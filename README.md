@@ -1952,7 +1952,7 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
 - Don’t forget to **save the diagram** by selecting **File > Save Model** to keep your work.  
   
 **9. Generate the SQL Script (Optional)**  
-If you want to generate an **SQL script** based on the diagram, click on **Database > Forward Engineer** to get the necessary script to recreate the tables and relationships in another database server.
+- If you want to generate an **SQL script** based on the diagram, click on **Database > Forward Engineer** to get the necessary script to recreate the tables and relationships in another database server.
 
 <div align="right">
   <strong>
