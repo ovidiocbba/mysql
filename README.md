@@ -1600,3 +1600,39 @@ LIMIT 10;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Column Name Alias
+The AS keyword is used to rename (alias) column names in the result set. This is useful for making column names more readable or aligning them with specific formatting requirements in reports or applications.
+
+```sql
+SELECT <column1>, <column2> AS <alias>, <column3>, <column4> AS <alias>  
+FROM <table_name>;
+```
+**Example**
+```sql
+SELECT id, name AS coffee, price, coffee_origin AS country  
+FROM products;  
+```
+This example selects the **id**, **name**, **price**, and **coffee_origin** columns from the products table. It renames:
+
+- name as **coffee**
+- coffee_origin as **country**  
+
+The result set will display **these renamed columns** instead of **their original names**.
+
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT id, name, price, coffee_origin FROM products;
+
+SELECT id, name AS coffee, price, coffee_origin AS country FROM products;
+
+SELECT id, name coffee, price, coffee_origin country FROM products;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
