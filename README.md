@@ -1278,3 +1278,34 @@ WHERE gender = 'M' AND phone_number IS NULL;
   </strong>
 </div>
 
+### In and Not In
+#### 1. SQL for 'Selecting Data' with a Condition
+This command retrieves all records from a table where a specific column matches one of multiple given values.
+```sql
+SELECT * FROM <table_name>  
+WHERE <column_name> IN (value1, value2, value3, ...);  
+```
+**Example**
+```sql
+SELECT * FROM customers  
+WHERE last_name IN ('Taylor', 'Bluth', 'Armstrong');  
+```
+![In and Not In](images/in_and_not_in.png)
+This example selects all records from the customers table where the **last_name** is either '**Taylor**', '**Bluth**', or '**Armstrong**'.
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT * FROM customers;
+
+SELECT * FROM customers
+WHERE last_name IN ('Taylor', 'Bluth', 'Armstrong');
+
+SELECT * FROM customers
+WHERE first_name NOT IN ('Katie', 'John', 'George');
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
