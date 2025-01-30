@@ -1916,3 +1916,46 @@ AND ord.order_time BETWEEN '2023-01-01' AND '2023-01-31 23:59:59.999999';
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Creating Entity Relationship diagrams in Workbench
+**1. Open MySQL Workbench**  
+- Start **MySQL Workbench** and **connect** to your **MySQL server** where your database is located.  
+
+**2. Connect to Your Database**  
+- In the **Navigator** panel on the left, find your database connection and **double-click** to connect to it.  
+
+**3. Select the Database**  
+- If you have multiple databases, make sure you select the correct one. You can do this by running the following command in the SQL Editor:
+```sql
+USE coffee_store;
+```
+**4. Generate the ER Diagram**  
+- In the top menu of MySQL Workbench, go to **Database** and select **Reverse Engineer**.
+This will open a wizard that allows you to generate the **ER diagram** for your existing database.  
+
+**5. Select Objects for Reverse Engineering**  
+- In the window that appears, choose your database connection.
+- Click **Continue**.
+- The wizard will ask you to select the objects you want to reverse-engineer. You can choose to include **tables** only or also include other objects like views, stored procedures, etc. For most cases, selecting **Tables** is sufficient.
+- Click **Continue**.  
+
+**6. Wait for the Process to Complete**  
+- MySQL Workbench will begin loading the structure of the database. This process may take a few minutes depending on the size of your database. 
+
+**7. View the ER Diagram**  
+- Once the process is completed, MySQL Workbench will generate the ER diagram, displaying all the tables and their relationships (if foreign keys are defined).
+- You’ll see the tables in the center of the diagram, and relationships between them will be represented by lines.  
+  
+**8. Adjust and Save the Diagram**  
+- You can move the tables and relationships around in the diagram to organize it more clearly.
+- Right-click on tables or relationships to edit their details if needed.
+- Don’t forget to **save the diagram** by selecting **File > Save Model** to keep your work.  
+  
+**9. Generate the SQL Script (Optional)**  
+If you want to generate an **SQL script** based on the diagram, click on **Database > Forward Engineer** to get the necessary script to recreate the tables and relationships in another database server.
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
