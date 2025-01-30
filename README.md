@@ -1655,7 +1655,54 @@ LIMIT 4;
 3. Select the **name**, **price** and **coffee origin** from the **products** table, but rename the **price** column to **retail price** in the result set.
 ```sql
 SELECT name, price AS retail_price, coffee_origin
-FROM  products
+FROM  products;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+## Section 7: Selecting From Multiple Tables
+### Inner Join
+#### SQL for 'Joining Tables' with INNER JOIN
+The **INNER JOIN** clause is used to combine rows from two or more tables based on a related column between them. It returns only the rows where there is a match in both tables. If there is no match, the row is not included in the result set.
+
+```sql
+SELECT <table1.column1>, <table2.column2>  
+FROM <table1>  
+INNER JOIN <table2> ON <table1.column_name> = <table2.column_name>;
+```
+**Example**
+```sql
+SELECT products.name, orders.order_time  
+FROM orders  
+INNER JOIN products ON orders.product_id = products.id; 
+```
+This example retrieves the **name of products** from the **products** table and the **order_time** from the **orders** table. It joins the two tables where the **product_id** in the orders table matches the id in the products table. Only records with a matching **product_id** and id will be returned.
+
+![Inner Join](images/inner_join.png)
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT * FROM orders;
+SELECT * FROM products;
+
+SELECT products.name, orders.order_time 
+FROM orders
+INNER JOIN products ON orders.product_id = products.id;
+
+SELECT p.name, o.order_time 
+FROM orders AS o
+JOIN products p ON o.product_id = p.id;
+
+SELECT p.name, o.order_time 
+FROM orders AS o
+JOIN products p ON o.product_id = p.id
+WHERE o.product_id = 5
+ORDER BY o.order_time;
 ```
 
 <div align="right">
