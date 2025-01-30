@@ -1497,3 +1497,46 @@ WHERE last_name = '%ar%';
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Distinct
+#### SQL for 'Selecting Unique Values' from a Column
+The DISTINCT keyword is used to retrieve unique (non-duplicate) values from a specific column in a table. This helps in filtering out repeated entries and showing only distinct results.
+
+```sql
+SELECT DISTINCT <column_name>  
+FROM <table_name>;
+```
+**Example**
+```sql
+SELECT DISTINCT coffee_origin  
+FROM products;
+```
+This example selects all unique values from the coffee_origin column in the products table, ensuring that no duplicate origins are included in the result set.
+
+**Practice**
+```sql
+use coffee_store;
+ 
+SELECT coffee_origin FROM products;
+
+SELECT DISTINCT coffee_origin FROM products;
+
+SELECT DISTINCT coffee_origin, id FROM products;
+
+SELECT DISTINCT coffee_origin, price FROM products;
+
+SELECT DISTINCT customer_id FROM orders
+WHERE order_time BETWEEN '2023-02-01' and '2023-02-28 23:59:59.999999'
+ORDER BY customer_id;
+
+SELECT DISTINCT customer_id, product_id FROM orders
+WHERE order_time BETWEEN '2023-02-01' and '2023-02-28 23:59:59.999999'
+ORDER BY customer_id;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
