@@ -1401,3 +1401,52 @@ WHERE price LIKE '3%';
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Order By
+#### SQL for 'Sorting Data' in a Query
+This command retrieves all records from a table and orders the results based on a specified column. The **ORDER BY** clause is used to sort the data in ascending (**ASC**) or descending (**DESC**) order.
+
+**ASC (Ascending)** – Default order, sorts from smallest to largest (A-Z, 0-9).  
+**DESC (Descending)** – Sorts from largest to smallest (Z-A, 9-0).  
+
+```sql
+SELECT * FROM <table_name>  
+ORDER BY <column_name> <ASC|DESC>;  
+```
+**Example**
+```sql
+SELECT * FROM customers  
+ORDER BY last_name DESC; 
+```
+This example selects all records from the customers table and sorts them by last_name in **descending** (**Z-A**) order.
+
+**Practice**
+```sql
+USE coffee_store;
+
+SELECT * FROM products;
+
+SELECT * FROM products
+ORDER BY price DESC;
+
+SELECT * FROM customers;
+
+SELECT * FROM customers
+ORDER BY last_name DESC;
+
+SELECT * FROM customers
+WHERE last_name = 'Bluth'
+ORDER BY last_name, first_name;
+
+SELECT * FROM orders
+ORDER BY order_time;
+
+SELECT * FROM orders
+ORDER BY order_time DESC;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
