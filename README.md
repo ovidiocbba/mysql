@@ -1689,6 +1689,7 @@ FROM  products;
 </div>
 
 ## Section 7: Selecting From Multiple Tables
+![selecting_from_multiple_tables](images/selecting_from_multiple_tables.png)
 ### Inner Join
 **SQL for 'Joining Tables' with INNER JOIN**
 The **INNER JOIN** clause is used to combine rows from two or more tables based on a related column between them. It returns only the rows where there is a match in both tables. If there is no match, the row is not included in the result set.
@@ -1868,6 +1869,48 @@ JOIN customers c ON c.id = o.customer_id
 WHERE c.last_name = 'Martin'
 ORDER BY o.order_time;
 ```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Exercise 7
+
+1.	Select the **order ID** and customer's phone number for all orders of **product ID 4**.
+
+```sql
+SELECT ord.id, cus.phone_number
+FROM orders AS ord
+INNER JOIN customers AS cus ON ord.customer_id = cus.id
+WHERE ord.product_id = 4;
+```
+2. Select the product name and order time, for **filter** coffees sold between January 1 st 2023 and March 31st 2023.
+```sql
+SELECT pro.name, ord.order_time
+FROM  products AS pro
+INNER JOIN orders AS ord ON ord.product_id = pro.id
+WHERE pro.name = 'Filter' 
+AND ord.order_time BETWEEN '2023-01-01' AND '2023-03-31 23:59:59.999999';
+```
+**products** is the main table (FROM **products**), which makes more sense because we **first filter by products.name** = 'Filter' before joining with orders.
+
+3. Select the **product name**, **price** and **order time** for all orders from **females**, in January 2023.
+```sql
+SELECT pro.name, pro.price, ord.order_time
+FROM products AS pro
+INNER JOIN orders AS ord ON ord.product_id = pro.id
+INNER JOIN customers AS cus ON ord.customer_id = cus.id
+WHERE cus.gender ='F' 
+AND ord.order_time BETWEEN '2023-01-01' AND '2023-01-31 23:59:59.999999';
+```
+**Note:**
+**Starting** with the **products** table is efficient when **filtering by product** attributes. It reduces the dataset early on, making joins with other tables, like orders, faster.  
+
+**Two approaches**  
+**Starting with products**: First, you filter the products, **reducing the dataset** `before joining with other tables` like orders and customers. This way, you work with fewer records.  
+**Starting with orders:** If you start with **orders**, you might end up `processing more data before filtering` for the specific products you need.
+
 <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
