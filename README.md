@@ -1759,3 +1759,47 @@ ORDER BY c.id;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+#### SQL for 'Joining Tables' with RIGHT JOIN
+The **RIGHT JOIN** retrieves all records from the **right** table (orders in this case) and the matched records from the **left** table (customers). If there is no match, the result will still include all rows from the **right** table, with **NULL** values for columns from the **left** table.
+
+```sql
+SELECT <table1.column1>, <table2.column2>  
+FROM <table1>  
+RIGHT JOIN <table2> ON <table1.column_name> = <table2.column_name>  
+ORDER BY <table2.column_name>;  
+```
+**Example**
+```sql
+SELECT o.*, c.*  
+FROM customers c  
+RIGHT JOIN orders o ON o.customer_id = c.id  
+ORDER BY o.id;
+```
+![Right join](images/right_join.png)    
+
+**Practice**
+```sql
+USE coffee_store;
+  
+SELECT o.*, c.* 
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id
+ORDER BY o.id;
+
+SELECT o.*, c.* 
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.id
+ORDER BY o.id;
+
+SELECT o.*, c.* 
+FROM orders o
+RIGHT JOIN customers c ON o.customer_id = c.id
+ORDER BY o.order_time;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
