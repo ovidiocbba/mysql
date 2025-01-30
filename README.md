@@ -1,5 +1,5 @@
 # Table of contents
-- [Table of contents](#table-of-contents)
+
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -36,25 +36,15 @@
     - [Null Values](#null-values)
     - [In and Not In](#in-and-not-in)
     - [Between](#between)
-      - [SQL for 'Selecting Data' with a Range Condition](#sql-for-selecting-data-with-a-range-condition)
     - [Like](#like)
     - [Order By](#order-by)
-      - [SQL for 'Sorting Data' in a Query](#sql-for-sorting-data-in-a-query)
     - [Distinct](#distinct)
-      - [SQL for 'Selecting Unique Values' from a Column](#sql-for-selecting-unique-values-from-a-column)
     - [Limit](#limit)
-      - [SQL for 'Limiting the Number of Results' in a Query](#sql-for-limiting-the-number-of-results-in-a-query)
     - [Column Name Alias](#column-name-alias)
   - [Section 7: Selecting From Multiple Tables](#section-7-selecting-from-multiple-tables)
     - [Inner Join](#inner-join)
-      - [SQL for 'Joining Tables' with INNER JOIN](#sql-for-joining-tables-with-inner-join)
     - [Left Join](#left-join)
-      - [SQL for 'Joining Tables' with LEFT JOIN](#sql-for-joining-tables-with-left-join)
     - [Right Join](#right-join)
-      - [SQL for 'Joining Tables' with RIGHT JOIN](#sql-for-joining-tables-with-right-join)
-
-
-
 
 
 ## Section 1: Course Introduction
@@ -1746,7 +1736,7 @@ ORDER BY o.order_time;
 </div>
 
 ### Left Join
-#### SQL for 'Joining Tables' with LEFT JOIN
+**SQL for 'Joining Tables' with LEFT JOIN**
 The **LEFT JOIN** retrieves all records from the **left** table (in this case, orders), and the matched records from the **right** table (customers). If there is no match, the result will still include all rows from the **left** table, with **NULL** values for columns from the **right** table.
 ```sql
 SELECT <table1.column1>, <table2.column2>  
@@ -1794,7 +1784,7 @@ ORDER BY c.id;
 </div>
 
 ### Right Join
-#### SQL for 'Joining Tables' with RIGHT JOIN
+**SQL for 'Joining Tables' with RIGHT JOIN**
 The **RIGHT JOIN** retrieves all records from the **right** table (orders in this case) and the matched records from the **left** table (customers). If there is no match, the result will still include all rows from the **right** table, with **NULL** values for columns from the **left** table.
 
 ```sql
