@@ -47,6 +47,11 @@
     - [Inner Join](#inner-join)
     - [Left Join](#left-join)
     - [Right Join](#right-join)
+    - [Joining more than Two Tables](#joining-more-than-two-tables)
+    - [Exercise 7](#exercise-7)
+    - [Creating Entity Relationship diagrams in Workbench](#creating-entity-relationship-diagrams-in-workbench)
+  - [Section 8: Database Design](#section-8-database-design)
+    - [Normalization - What is it?](#normalization---what-is-it)
 
 ## Section 1: Course Introduction
 
@@ -1953,6 +1958,19 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
   
 **9. Generate the SQL Script (Optional)**  
 - If you want to generate an **SQL script** based on the diagram, click on **Database > Forward Engineer** to get the necessary script to recreate the tables and relationships in another database server.
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+## Section 8: Database Design
+### Normalization - What is it?
+![Normalization](images/normalization.png)
+![Normalization 1](images/normalization-1.png)
+![Normalization 2](images/normalization-2.png)
+![Normalization 3](images/normalization-3.png)
 
 <div align="right">
   <strong>
