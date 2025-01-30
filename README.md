@@ -788,6 +788,12 @@ VALUES ('Latte', 3.50, 'Indonesia'), ('Americano', 3.00, 'Brazil'),
 ```
 ![Inserting Data Into Tables](images/5_inserting_data_into_tables.png) 
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Updating Data in Tables
 #### SQL for 'Updating Data' in a Table
 This command is used to **update existing records** in a table by specifying the column and new value, with an optional condition to match which records should be updated.
@@ -821,6 +827,12 @@ SET coffee_origin = 'Colombia'
 WHERE coffee_origin = 'Brazil';
 ```
 **Note**: The command SET sql_safe_updates = false; disables the "safe updates" mode in MySQL, which can make your queries potentially risky. 
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
 ### Deleting Data from Tables
 #### SQL for 'Deleting Data' from a Table
@@ -858,6 +870,12 @@ WHERE gender = 'F';
 DELETE FROM people;
 ```
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 #### Completing the Coffee Store Database
 ```sql
 USE coffee_store;
@@ -894,6 +912,13 @@ VALUES ('Chris','Martin','M','01123147789'),
        ('Toby','West','M','01176009822'),
        ('Paul','Edmonds','M','01966947113');
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 **Orders**
 ```sql
 INSERT INTO orders (product_id, customer_id, order_time)
@@ -1118,6 +1143,13 @@ VALUES (3, 18, '2022-01-01 01:40:42'),
        (2, 3, '2023-04-30 08:43:40'),
        (3, 15, '2023-04-30 19:43:25');
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Section 6: Selecting from a Table
 #### Select Statement
 ```sql
@@ -1129,6 +1161,13 @@ SELECT last_name FROM customers;
 
 SELECT last_name, phone_number FROM customers;
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 #### Where Clause
 ```sql
 USE coffee_store;
@@ -1146,6 +1185,13 @@ SELECT * FROM products
 WHERE price = 3.00
 OR coffee_origin = 'Colombia';
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Using Inequality Symbols
 ```sql
 USE coffee_store;
@@ -1181,6 +1227,12 @@ WHERE name < 'D';
 - **'!='** and **'<>'**
 Both operators **perform the same operation**: they return TRUE if the two operands are not equal and FALSE if they are equal.
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
 ### Null Values
 ```sql
 USE coffee_store;
@@ -1193,7 +1245,14 @@ WHERE phone_number is null;
 SELECT * FROM customers
 WHERE phone_number is not null;
 ```
-Exercise 6
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+**Exercise 6**
 1. From the '**customers**' table, select the '**first name**' and '**phone number**' of all the '**females**' who have a '**last name**' of '**Bluth**'.
 ```sql
 SELECT first_name, phone_number
@@ -1212,4 +1271,10 @@ SELECT *
 FROM customers 
 WHERE gender = 'M' AND phone_number IS NULL;
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
 
