@@ -1682,7 +1682,8 @@ INNER JOIN products ON orders.product_id = products.id;
 ```
 This example retrieves the **name of products** from the **products** table and the **order_time** from the **orders** table. It joins the two tables where the **product_id** in the orders table matches the id in the products table. Only records with a matching **product_id** and id will be returned.
 
-![Inner Join](images/inner_join.png)
+![Inner Join](images/inner_join.png)  
+
 **Practice**
 ```sql
 USE coffee_store;
@@ -1703,6 +1704,54 @@ FROM orders AS o
 JOIN products p ON o.product_id = p.id
 WHERE o.product_id = 5
 ORDER BY o.order_time;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Left Join
+#### SQL for 'Joining Tables' with LEFT JOIN
+The **LEFT JOIN** retrieves all records from the **left** table (in this case, orders), and the matched records from the **right** table (customers). If there is no match, the result will still include all rows from the **left** table, with **NULL** values for columns from the **right** table.
+```sql
+SELECT <table1.column1>, <table2.column2>  
+FROM <table1>  
+LEFT JOIN <table2> ON <table1.column_name> = <table2.column_name>  
+ORDER BY <table1.column_name>; 
+```
+**Example**
+```sql
+SELECT o.*, c.* 
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.id
+ORDER BY o.order_time;
+```
+This example retrieves all columns from the orders table (o.*) and all columns from the customers table (c.*). It performs a LEFT JOIN on the orders table with the customers table where the customer_id from orders matches the id in customers. If there is no matching customer_id for an order, the customer-related columns will be NULL. The result is ordered by the order_time from the orders table.
+![Left Join](images/left_join.png)  
+**Practice**
+```sql
+USE coffee_store;
+
+UPDATE orders
+SET customer_id = Null
+WHERE id IN (1, 3, 5);
+ 
+SELECT * 
+FROM customers;
+SELECT * 
+FROM orders;
+
+SELECT o.*, c.* 
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.id
+ORDER BY o.order_time;
+
+SELECT o.*, c.* 
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id
+ORDER BY c.id;
 ```
 
 <div align="right">
