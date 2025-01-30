@@ -1828,3 +1828,48 @@ ORDER BY o.order_time;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Joining more than Two Tables
+**SQL for 'Joining Multiple Tables' with Conditions**  
+This query **joins three tables** (products, orders, and customers) using JOIN to retrieve relevant data. The WHERE clause filters the results to only include orders from customers with a specific last name. The ORDER BY clause sorts the results based on the order time.
+```sql
+SELECT <table1.column1>, <table2.column2>, <table3.column3>  
+FROM <table1>  
+JOIN <table2> ON <table1.column_name> = <table2.column_name>  
+JOIN <table3> ON <table2.column_name> = <table3.column_name>  
+WHERE <table3.column_name> = '<value>'  
+ORDER BY <table2.column_name>; 
+```
+**Note:**
+In SQL, **JOIN** by default is an **INNER JOIN**, so writing JOIN without specifying the type is the same as writing **INNER JOIN**.
+
+**Example**
+```sql
+SELECT p.name, p.price, c.first_name, c.last_name, o.order_time  
+FROM products p  
+JOIN orders o ON p.id = o.product_id  
+JOIN customers c ON c.id = o.customer_id  
+WHERE c.last_name = 'Martin'  
+ORDER BY o.order_time;  
+```
+
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT * FROM products;
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+SELECT p.name, p.price, c.first_name, c.last_name, o.order_time 
+FROM products p
+JOIN orders o ON p.id = o.product_id
+JOIN customers c ON c.id = o.customer_id
+WHERE c.last_name = 'Martin'
+ORDER BY o.order_time;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
