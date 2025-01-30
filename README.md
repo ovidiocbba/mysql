@@ -1290,7 +1290,7 @@ WHERE <column_name> IN (value1, value2, value3, ...);
 SELECT * FROM customers  
 WHERE last_name IN ('Taylor', 'Bluth', 'Armstrong');  
 ```
-![In and Not In](images/in_and_not_in.png)
+![In and Not In](images/in_and_not_in.png)  
 This example selects all records from the customers table where the **last_name** is either '**Taylor**', '**Bluth**', or '**Armstrong**'.
 **Practice**
 ```sql
@@ -1450,3 +1450,43 @@ ORDER BY order_time DESC;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+**Exercise 6**
+1. From the products table, select the name and price of all products with a coffee origin equal to Colombia or Indonesia. Sort the results by name, from A-Z.  
+**Option 1**
+```sql
+SELECT name, price
+FROM products
+WHERE coffee_origin = 'Colombia' OR coffee_origin = 'Indonesia'
+ORDER BY name;
+```
+**Option 2**
+```sql
+SELECT name, price
+FROM products
+WHERE coffee_origin IN ('Colombia', 'Indonesia')
+ORDER BY name ASC;
+```
+
+2. From the **orders** table, select all the orders from **February 2023**, for **customers** with IDs of **19, 20, 21 or 24**.   
+   
+**Option 1**
+```sql
+SELECT *
+FROM orders
+WHERE order_time LIKE "2023-02%" AND customer_id IN (19, 20, 21, 24);
+```
+**Option 2**
+```sql
+SELECT * FROM orders
+WHERE order_time BETWEEN '2023-02-01' AND '2023-02-28 23:59:59.999999'
+AND customer_id IN (19, 20, 21, 24);
+```
+
+1. From the customers table, select the first name and phone number of all customers whose last name contains the pattern 'ar'.
+
+```sql
+SELECT first_name, phone_number
+FROM customers
+WHERE last_name = '%ar%';
+```
