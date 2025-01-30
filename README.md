@@ -1309,3 +1309,40 @@ WHERE first_name NOT IN ('Katie', 'John', 'George');
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Between
+#### 1. SQL for 'Selecting Data' with a Range Condition
+This command gets all rows from a table where a column's value is inside a given range, including the start and end values.
+```sql
+SELECT * FROM <table_name>  
+WHERE <column_name> BETWEEN <value1> AND <value2>;  
+```
+**Example**
+```sql
+SELECT * FROM orders  
+WHERE customer_id BETWEEN 5 AND 7;  
+```
+This example selects all records from the **orders** table where the **customer_id** is between **5** and **7**, inclusive.
+
+**Practice**
+```sql
+USE coffee_store;
+ 
+SELECT * FROM orders;
+
+SELECT * FROM orders
+WHERE order_time BETWEEN '2023-01-01' AND '2023-01-31 23:59:59';
+
+SELECT * FROM orders
+WHERE customer_id BETWEEN 5 AND 7;
+
+SELECT * FROM customers;
+
+SELECT * FROM customers
+WHERE last_name BETWEEN 'A' AND 'M';
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
