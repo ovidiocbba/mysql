@@ -1,5 +1,4 @@
 # Table of contents
-
   - [Section 1: Course Introduction](#section-1-course-introduction)
   - [Section 2: Installation and Setup](#section-2-installation-and-setup)
     - [Docker](#docker)
@@ -34,18 +33,20 @@
       - [Where Clause](#where-clause)
     - [Using Inequality Symbols](#using-inequality-symbols)
     - [Null Values](#null-values)
+    - [Exercise 6 - 1](#exercise-6---1)
     - [In and Not In](#in-and-not-in)
     - [Between](#between)
     - [Like](#like)
     - [Order By](#order-by)
+    - [Exercise 6 - 2](#exercise-6---2)
     - [Distinct](#distinct)
     - [Limit](#limit)
     - [Column Name Alias](#column-name-alias)
+    - [Exercise 6 - 3](#exercise-6---3)
   - [Section 7: Selecting From Multiple Tables](#section-7-selecting-from-multiple-tables)
     - [Inner Join](#inner-join)
     - [Left Join](#left-join)
     - [Right Join](#right-join)
-
 
 ## Section 1: Course Introduction
 
@@ -1275,7 +1276,7 @@ WHERE phone_number is not null;
   </strong>
 </div>
 
-**Exercise 6**
+### Exercise 6 - 1
 1. From the '**customers**' table, select the '**first name**' and '**phone number**' of all the '**females**' who have a '**last name**' of '**Bluth**'.
 ```sql
 SELECT first_name, phone_number
@@ -1474,7 +1475,7 @@ ORDER BY order_time DESC;
   </strong>
 </div>
 
-**Exercise 6**
+### Exercise 6 - 2
 1. From the products table, select the name and price of all products with a coffee origin equal to Colombia or Indonesia. Sort the results by name, from A-Z.  
 
 **Option 1**
@@ -1660,7 +1661,7 @@ SELECT id, name coffee, price, coffee_origin country FROM products;
   </strong>
 </div>
 
-**Exercise 6 - Part 2**
+### Exercise 6 - 3
 1. From the customers table, select all the distinct last names, and order them alphabetically (**from A to Z**).
 ```sql
 SELECT DISTINCT last_name
