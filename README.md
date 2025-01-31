@@ -2162,3 +2162,253 @@ WHERE last_name = 'Smith';
 SELECT count(*) FROM customers
 WHERE first_name IS NULL;
 ```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### SUM 
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM rooms;
+
+SELECT sum(no_seats) FROM rooms;
+
+SELECT sum(no_seats) FROM rooms
+WHERE id > 1;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Min and Max 
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM films;
+
+SELECT max(length_min) FROM films;
+
+SELECT name, max(length_min) FROM films;  # error
+
+SELECT min(length_min) FROM films;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Average 
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM films;
+
+SELECT avg(length_min) FROM films;
+
+SELECT avg(length_min) FROM films WHERE length_min > 120;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Exercise 10
+1. The first question is, how many bookings did the customer with ID 10 make, in total
+```sql
+SELECT count(*) 
+FROM bookings
+WHERE customer_id = 10;
+```
+2. Count the number of screenings for Blade Runner 2049 in October 2022.
+
+**Option 1**
+```sql
+SELECT COUNT(*)
+FROM films
+INNER JOIN screenings ON films.id = screenings.film_id
+WHERE films.name = 'Blade Runner 2049' 
+AND screenings.start_time BETWEEN '2022-10-01' AND '2022-10-31 23:59:59.999999';
+```
+**Option 2**
+```sql
+ SELECT COUNT(*) 
+ FROM screenings
+ JOIN films ON screenings.film_id = films.id
+ WHERE films.name = 'Blade Runner 2049'
+ AND month(screenings.start_time) = 10
+ AND year(screenings.start_time) = 2022;
+ ```
+3. Count the number of unique customers who made a booking for April 2023.
+```sql
+SELECT COUNT(DISTINCT(customer_id)) 
+FROM bookings
+JOIN screenings on bookings.screening_id = screenings.id
+WHERE screenings.start_time BETWEEN '2023-04-01'
+AND '2023-04-30 23:59:59.999999';
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Grouping Data 
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM bookings;
+
+SELECT count(*) 
+FROM bookings;
+
+SELECT customer_id, count(*) 
+FROM bookings
+GROUP BY customer_id;
+
+SELECT customer_id, screening_id, count(*) 
+FROM bookings
+GROUP BY customer_id, screening_id
+ORDER BY customer_id;
+
+SELECT f.name, s.start_time, c.first_name, c.last_name, count(b.id) 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN bookings b ON s.id = b.screening_id
+JOIN customers c on b.customer_id = c.id
+GROUP BY f.name, c.last_name, c.first_name, s.start_time
+ORDER BY s.start_time;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Grouping Data
+**Practice**
+```sql
+USE cinema_booking_system;
+  
+SELECT * FROM bookings;
+ 
+SELECT customer_id, screening_id, count(*) FROM bookings
+GROUP BY customer_id, screening_id
+HAVING customer_id = 10;
+
+SELECT customer_id, screening_id, count(*) FROM bookings
+JOIN screenings on bookings.screening_id = screenings.id
+WHERE year(screenings.start_time) = 2022
+GROUP BY customer_id, screening_id
+HAVING customer_id = 10;
+
+SELECT b.customer_id, s.* FROM bookings b
+JOIN screenings s ON b.screening_id = s.id
+WHERE b.customer_id = 10;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Having Clause 
+```sql
+USE cinema_booking_system;
+  
+SELECT * FROM bookings;
+ 
+SELECT customer_id, screening_id, count(*) 
+FROM bookings
+GROUP BY customer_id, screening_id
+HAVING customer_id = 10;
+
+SELECT customer_id, screening_id, count(*) 
+FROM bookings
+JOIN screenings on bookings.screening_id = screenings.id
+WHERE year(screenings.start_time) = 2022
+GROUP BY customer_id, screening_id
+HAVING customer_id = 10;
+
+SELECT b.customer_id, s.* 
+FROM bookings b
+JOIN screenings s ON b.screening_id = s.id
+WHERE b.customer_id = 10;
+```
+Use ``HAVING`` when you need to filter after grouping.  
+Use ``WHERE`` when you want to filter before grouping.  
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Exercise 10
+1. Select the customer ID and count the number of reserved seats, grouped by customer.
+   Sort the results by customer ID.
+
+```sql
+SELECT b.customer_id, count(*) 
+FROM bookings b
+JOIN reserved_seat rs ON b.id = rs.booking_id
+GROUP BY b.customer_id
+ORDER BY customer_id;
+```
+ 
+ 
+2. Select the film name, and count the number of screening, for each film that is over two hours long.
+ 
+```sql
+SELECT f.name, f.length_min, count(*) FROM films f
+JOIN screenings s ON f.id = s.film_id
+GROUP BY f.name, f.length_min
+HAVING f.length_min > 120;
+``` 
+3. Modify the query from question 2, so that it only counts screenings for January 2023.  
+
+**Option 1**
+```sql
+SELECT f.name, f.length_min, count(*) FROM films f
+JOIN screenings s ON f.id = s.film_id
+WHERE month(s.start_time) = 1 AND year(s.start_time) = 2023
+GROUP BY f.name, f.length_min
+HAVING f.length_min > 120;
+```
+**Option 2**
+```sql
+SELECT f.name, f.length_min, count(s.id) 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+WHERE month(s.start_time) = 1 AND year(s.start_time) = 2023 AND f.length_min > 120
+GROUP BY f.name, f.length_min;
+```
+1. Find out how many seats each customer booked, for each screening.
+   Include the customer ID, the screening ID, and the number of seats for each customer for that screening.
+
+```sql
+SELECT customer_id, screening_id, count(*) AS no_seats 
+FROM bookings b
+join reserved_seat rs ON rs.booking_id = b.id
+GROUP BY customer_id, screening_id
+ORDER BY customer_id;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
