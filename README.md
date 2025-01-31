@@ -60,7 +60,19 @@
     - [Relationships - Many to Many](#relationships---many-to-many)
     - [Constraints](#constraints)
   - [Section 9: Creating a Cinema Booking System Database](#section-9-creating-a-cinema-booking-system-database)
-
+  - [Section 10: Aggregate Function](#section-10-aggregate-function)
+    - [What are Aggregate Functions](#what-are-aggregate-functions)
+    - [Count](#count)
+    - [Sum](#sum)
+    - [Min and Max](#min-and-max)
+    - [Average](#average)
+    - [Exercise 10 -1](#exercise-10--1)
+    - [Grouping Data](#grouping-data)
+    - [Grouping Data](#grouping-data-1)
+    - [Having Clause](#having-clause)
+    - [Exercise 10 - 2](#exercise-10---2)
+  - [Section 11: Subqueries](#section-11-subqueries)
+    - [What Are Subqueries](#what-are-subqueries)
 
 ## Section 1: Course Introduction
 
@@ -2169,7 +2181,7 @@ WHERE first_name IS NULL;
   </strong>
 </div>
 
-### SUM 
+### Sum 
 ```sql
 USE cinema_booking_system;
  
@@ -2223,7 +2235,7 @@ SELECT avg(length_min) FROM films WHERE length_min > 120;
   </strong>
 </div>
 
-### Exercise 10
+### Exercise 10 -1 
 1. The first question is, how many bookings did the customer with ID 10 make, in total
 ```sql
 SELECT count(*) 
@@ -2358,7 +2370,7 @@ Use ``WHERE`` when you want to filter before grouping.
   </strong>
 </div>
 
-### Exercise 10
+### Exercise 10 - 2
 1. Select the customer ID and count the number of reserved seats, grouped by customer.
    Sort the results by customer ID.
 
