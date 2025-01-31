@@ -2412,3 +2412,15 @@ ORDER BY customer_id;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Section 11: Subqueries
+### What Are Subqueries
+![What Are Subqueries](images/what_are_subqueries.png)
+![What Are Subqueries 1](images/what_are_subqueries_1.png)
+![What Are Subqueries 2](images/what_are_subqueries_2.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
