@@ -2012,3 +2012,40 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Relationships - One to One
+![One to One](images/one_to_one_1.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Relationships - One to Many
+![One to Many](images/one_to_many.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Relationships - Many to Many
+![Many to Many](images/many_to_many.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Constraints
+![Constraints](images/constraints_1.png)
+![Constraints](images/constraints_2.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
