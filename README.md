@@ -1977,3 +1977,14 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### 1st Normal Form (1NF)
+![1NF 1](images/1nf_1.png)
+![1NF 2](images/1nf_2.png)
+![1NF 3](images/1nf_3.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
