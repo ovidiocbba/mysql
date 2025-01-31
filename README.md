@@ -2000,3 +2000,15 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### 3rd Normal Form (3NF)
+![3NF 1](images/3nf_1.png)
+![3NF 2](images/3nf_2.png)
+![3NF 3](images/3nf_3.png)
+![3NF 4](images/3nf_4.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
