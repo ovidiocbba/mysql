@@ -52,6 +52,15 @@
     - [Creating Entity Relationship diagrams in Workbench](#creating-entity-relationship-diagrams-in-workbench)
   - [Section 8: Database Design](#section-8-database-design)
     - [Normalization - What is it?](#normalization---what-is-it)
+    - [1st Normal Form (1NF)](#1st-normal-form-1nf)
+    - [2nd Normal Form (2NF)](#2nd-normal-form-2nf)
+    - [3rd Normal Form (3NF)](#3rd-normal-form-3nf)
+    - [Relationships - One to One](#relationships---one-to-one)
+    - [Relationships - One to Many](#relationships---one-to-many)
+    - [Relationships - Many to Many](#relationships---many-to-many)
+    - [Constraints](#constraints)
+  - [Section 9: Creating a Cinema Booking System Database](#section-9-creating-a-cinema-booking-system-database)
+
 
 ## Section 1: Course Introduction
 
@@ -2044,6 +2053,84 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
 ![Constraints](images/constraints_1.png)
 ![Constraints](images/constraints_2.png)
 
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+## Section 9: Creating a Cinema Booking System Database
+**1. Create Films Table**
+```sql
+CREATE DATABASE cinema_booking_system;
+
+USE cinema_booking_system;
+
+CREATE TABLE films (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL UNIQUE,
+  length_min INT NOT NULL
+);
+```
+**2. Create Customers Table**
+```sql
+CREATE TABLE customers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(45),
+  last_name VARCHAR(45) NOT NULL,
+  email VARCHAR(45) NOT NULL UNIQUE
+);
+```
+**3. Create Rooms Table**
+```sql
+CREATE TABLE rooms (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  no_seats INT NOT NULL
+);
+```
+**4. Create Screenings Table**
+```sql
+CREATE TABLE screenings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  film_id INT NOT NULL,
+  room_id INT NOT NULL,
+  start_time DATETIME NOT NULL,
+  FOREIGN KEY (film_id) REFERENCES films(id),
+  FOREIGN KEY (room_id) REFERENCES rooms(id)
+);
+```
+**5. Create Seats Table**
+```sql
+CREATE TABLE seats (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  seat_row CHAR(1) NOT NULL,
+  number INT NOT NULL,
+  room_id INT NOT NULL,
+  FOREIGN KEY (room_id) REFERENCES rooms(id)
+);
+
+```
+**6. Create Bookings Table**
+```sql
+CREATE TABLE bookings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  screening_id INT NOT NULL,
+  customer_id INT NOT NULL,
+  FOREIGN KEY (screening_id) REFERENCES screenings(id),
+  FOREIGN KEY (customer_id) REFERENCES customers(id)
+);
+```
+**7. Create Reserved_Seat Table**
+```sql
+CREATE TABLE reserved_seat (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  booking_id INT NOT NULL,
+  seat_id INT NOT NULL,
+  FOREIGN KEY (booking_id) REFERENCES bookings(id),
+  FOREIGN KEY (seat_id) REFERENCES seats(id)
+);
+```
 <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
