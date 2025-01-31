@@ -1988,3 +1988,15 @@ This will open a wizard that allows you to generate the **ER diagram** for your 
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### 2nd Normal Form (2NF)
+![2NF 1](images/2nf_1.png)
+![2NF 2](images/2nf_2.png)
+![2NF 3](images/2nf_3.png)
+![2NF 4](images/2nf_4.png)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
