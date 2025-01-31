@@ -2139,3 +2139,26 @@ CREATE TABLE reserved_seat (
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Section 10: Aggregate Function
+### What are Aggregate Functions
+![What are Aggregate Functions](images/what_are_aggregate_functions.png)
+
+### Count
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM customers;
+
+SELECT count(*) FROM customers;
+
+SELECT count(last_name) FROM customers;
+
+SELECT count(first_name) FROM customers;
+
+SELECT count(*) FROM customers
+WHERE last_name = 'Smith';
+
+SELECT count(*) FROM customers
+WHERE first_name IS NULL;
+```
