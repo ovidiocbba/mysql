@@ -2131,6 +2131,8 @@ CREATE TABLE reserved_seat (
   FOREIGN KEY (seat_id) REFERENCES seats(id)
 );
 ```
+[Script - Insert Cinema Booking](https://github.com/ovidiocbba/MySQL/blob/main/script_database/insert_cinema_booking.sql)
+
 <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
