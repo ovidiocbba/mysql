@@ -2397,7 +2397,7 @@ JOIN screenings s ON f.id = s.film_id
 WHERE month(s.start_time) = 1 AND year(s.start_time) = 2023 AND f.length_min > 120
 GROUP BY f.name, f.length_min;
 ```
-1. Find out how many seats each customer booked, for each screening.
+4. Find out how many seats each customer booked, for each screening.
    Include the customer ID, the screening ID, and the number of seats for each customer for that screening.
 
 ```sql
