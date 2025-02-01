@@ -2436,3 +2436,120 @@ ORDER BY customer_id;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Non-Correlated Subqueries: Part 1
+**Example 1**
+```sql
+USE cinema_booking_system;
+ 
+SELECT id, start_time FROM screenings
+WHERE film_id IN
+    (SELECT id FROM films
+    WHERE length_min > 120)
+ORDER BY start_time;
+
+SELECT id, start_time FROM screenings
+WHERE film_id IN (1, 3, 8, 11)
+ORDER BY start_time;
+    
+SELECT id FROM films
+    WHERE length_min > 120;
+```
+**Example 2**
+```sql
+SELECT id, first_name, last_name, email FROM customers
+WHERE id IN
+	(SELECT customer_id FROM bookings
+    WHERE screening_id = 1)
+;
+
+SELECT customer_id FROM bookings
+    WHERE screening_id = 1;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Non-Correlated Subqueries: Part 2
+```sql
+USE cinema_booking_system;
+ 
+SELECT * FROM reserved_seat;
+
+SELECT booking_id, count(seat_id) AS no_seats
+FROM reserved_seat
+GROUP BY booking_id;
+
+SELECT avg(no_seats), max(no_seats) FROM
+(SELECT booking_id, count(seat_id) AS no_seats
+FROM reserved_seat
+GROUP BY booking_id) b;
+```
+The subquery:
+
+Groups the data by **booking_id** (each unique reservation).
+Counts the number of **seat_id** values for each booking.
+Creates a temporary **table (b)** with the result.
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Correlated Subqueries
+```sql
+USE cinema_booking_system;
+ 
+SELECT screening_id, customer_id
+FROM bookings
+ORDER BY screening_id;
+ 
+SELECT screening_id, customer_id,
+(SELECT count(*)
+FROM reserved_seat WHERE booking_id = b.id)
+FROM bookings b
+ORDER BY screening_id;
+
+SELECT count(*)
+FROM reserved_seat WHERE booking_id = b.id;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Exercise 11
+1.	Select the **film name** and **length**, for **all films** with a length greater than the average film length.
+```sql
+SELECT name, length_min
+FROM films
+WHERE length_min > (SELECT avg(length_min) FROM films);
+```
+2.	Select the maximum and minimum number of screenings, for our films.
+We want two values in the result, the maximum number of screenings, and the minimum number.
+```sql
+SELECT max(no_screenings), min(no_screenings) FROM
+(SELECT film_id, count(*) AS no_screenings FROM screenings
+ GROUP BY film_id) a;
+```
+3.	Select each film, and the number of screenings for that film.
+```sql
+SELECT name,
+(SELECT count(*) FROM screenings
+WHERE film_id = films.id)
+FROM films;
+```
+This subquery executes for each row in the films table.
+It counts (count(*)) the number of screenings (screenings) where film_id matches films.id.
+Returns **a number representing** how many times the movie has been scheduled in theaters.
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
