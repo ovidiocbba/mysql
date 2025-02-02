@@ -2553,3 +2553,99 @@ Returns **a number representing** how many times the movie has been scheduled in
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Section 12: MySQL String and Date Functions
+### What Are MySQL Functions?
+![What Are MySQL Functions?](images/what_are_mysql_functions.png)
+**Date and Time Functions**  
+[Link](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-functions.html)
+
+**String Functions and Operators**  
+[Link](https://dev.mysql.com/doc/refman/8.4/en/string-functions.html)
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Concatenation
+**Example**
+```sql
+SELECT concat(first_name, " ", last_name) AS full_name 
+FROM customers;
+```
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT concat(column1, column2) AS new_column_name FROM table;
+
+SELECT concat(first_name, last_name) as full_name FROM customers;
+
+SELECT concat(first_name, " ", last_name) as full_name FROM customers;
+
+SELECT concat(first_name, " ", last_name, " ", email) as full_name FROM customers;
+
+SELECT concat("This is ", first_name, " ", last_name, "'s email address ", email) as customer_email FROM customers;
+
+SELECT concat(first_name, last_name) FROM customers;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Substrings
+**Example**
+```sql
+--     substring(string, start, length)
+SELECT substring("Example", 3, 4) AS Sub;
+```
+- "**Example**" is the input string.
+- **3** means the extraction starts from the **3rd character** (a).
+- **4** means it extracts 4 characters starting from position 3.
+
+**Practice**
+```sql
+USE cinema_booking_system;
+
+SELECT substring("Example", 3, 3) AS Sub;
+
+SELECT substring("Example", 3, 4) AS Sub;
+ 
+--     substring(string, start, length)
+
+SELECT * FROM films;
+
+SELECT substring(name, 1, 4) AS short_name FROM films;
+
+SELECT substring(name, 5, 6) AS short_name FROM films;
+
+SELECT substring(name, -2, 2) AS short_name FROM films;
+
+SELECT substring(name, -6, 5) AS short_name FROM films;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Upper and Lower Case
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT name FROM rooms;
+
+SELECT upper(name) AS name FROM rooms;
+
+SELECT lower(name) AS name FROM rooms;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
