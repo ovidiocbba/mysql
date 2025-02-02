@@ -2616,6 +2616,7 @@ SELECT substring("Example", 3, 3) AS Sub;
 SELECT substring("Example", 3, 4) AS Sub;
  
 --     substring(string, start, length)
+--     substring(string, start)
 
 SELECT * FROM films;
 
@@ -2644,6 +2645,42 @@ SELECT upper(name) AS name FROM rooms;
 
 SELECT lower(name) AS name FROM rooms;
 ```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Exercise 12 - 1
+1. Concatenate the film names and lengths from the films table.
+```sql
+SELECT concat(name, ": ", length_min) AS film_info
+FROM films; 
+```
+2. Extract the customer’s email from the fifth character onwards. We want the end of their email address, from the 5th character.
+```sql
+SELECT substring(email, 5) AS email_short
+FROM customers;
+```
+3. Select the **customer's first name** in lowercase, and their last name in uppercase, for each customer **with the last name of Smith**.
+We want 2 columns in the result - a lowercase first name column, and an uppercase last name column.
+```sql
+SELECT lower(first_name) AS first_name, upper(last_name) AS last_name
+FROM customers
+WHERE last_name = "Smith";
+```
+4. Select the last three letters of each film name from the films table.
+```sql
+SELECT substring(name,- 3) AS last_three 
+FROM films;
+```
+5. Concatenate the first three letters in the first name, with the first 3 characters from the last name.
+Concatenate them together and return a single column in the results. Put a space between the 2 groups of 3 characters.
+```sql
+SELECT concat(substring(first_name, 1, 3), " ", substring(last_name, 1, 3)) AS short_name
+FROM customers;
+```
+
 <div align="right">
   <strong>
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
