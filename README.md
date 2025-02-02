@@ -2795,3 +2795,97 @@ WHERE month(start_time) = 10 AND year(start_time) = 2022;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Section 13: Challenges
+### Challenge 1
+Which films are over 2 hours long?
+```sql
+SELECT id, name , length_min
+FROM films
+WHERE length_min > 120;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Challenge 2
+Two scenarios where this information would be required.
+1.	Your manager asks you the question.
+2.	The result will be used by some other process.
+Hint: You can nest a sub-query inside another nested sub-query. More than 1 level of nesting, in other words.
+```sql
+USE cinema_booking_system;
+ 
+-- Which film (or films) had the most screenings?
+SELECT f.name, count(s.film_id) AS showings 
+FROM screenings s
+JOIN films f ON f.id = s.film_id
+GROUP BY film_id
+ORDER BY showings DESC;
+
+SELECT f.name, count(s.film_id) AS showings 
+FROM screenings s
+JOIN films f ON f.id = s.film_id
+GROUP BY film_id
+HAVING showings = (
+SELECT max(sh.showings) 
+FROM
+(SELECT count(s.film_id) AS showings FROM screenings s
+GROUP BY film_id) AS sh
+);
+
+-- Get the counts.
+SELECT count(s.film_id) AS showings 
+FROM screenings s
+GROUP BY film_id;
+
+-- Get the maximum number of screenings.
+SELECT max(sh.showings) 
+FROM
+(SELECT count(s.film_id) AS showings FROM screenings s
+GROUP BY film_id) AS sh;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Challenge 3
+How many bookings did the film Jigsaw have, in May 2022?
+**Option 1**
+```sql
+SELECT count(*) 
+FROM bookings b
+JOIN screenings s ON b.screening_id = s.id
+JOIN films ON films.id = s.film_id
+WHERE films.name = 'Jigsaw'
+AND year(start_time) = 2022 AND month(start_time) = 5;
+```
+**Option 2**
+```sql
+SELECT screenings.id 
+FROM screenings
+JOIN films ON films.id = screenings.film_id
+WHERE films.name = 'Jigsaw'
+AND year(start_time) = 2022 AND month(start_time) = 5;
+
+SELECT count(*) 
+FROM bookings
+WHERE screening_id IN
+(SELECT screenings.id 
+FROM screenings
+JOIN films ON films.id = screenings.film_id
+WHERE films.name = 'Jigsaw'
+AND year(start_time) = 2022 AND month(start_time) = 5);
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
