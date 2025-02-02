@@ -2906,3 +2906,42 @@ LIMIT 5;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Challenge 5
+In the Chaplin room, which film was shown most often?
+**Option 1**
+```sql
+SELECT * FROM films;
+SELECT * FROM rooms;
+SELECT * FROM screenings;
+
+SELECT f.name, count(*) AS no_screenings 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name
+ORDER BY no_screenings DESC
+LIMIT 1;
+```
+**Option 2**
+```sql
+SELECT f.name, count(*) AS no_screenings FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name
+HAVING no_screenings =
+(SELECT max(screenings_count) FROM
+(SELECT count(*) AS screenings_count FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name) as rc);
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
