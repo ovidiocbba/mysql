@@ -73,6 +73,28 @@
     - [Exercise 10 - 2](#exercise-10---2)
   - [Section 11: Subqueries](#section-11-subqueries)
     - [What Are Subqueries](#what-are-subqueries)
+    - [Non-Correlated Subqueries: Part 1](#non-correlated-subqueries-part-1)
+    - [Non-Correlated Subqueries: Part 2](#non-correlated-subqueries-part-2)
+    - [Correlated Subqueries](#correlated-subqueries)
+    - [Exercise 11](#exercise-11)
+  - [Section 12: MySQL String and Date Functions](#section-12-mysql-string-and-date-functions)
+    - [What Are MySQL Functions?](#what-are-mysql-functions)
+    - [Concatenation](#concatenation)
+    - [Substrings](#substrings)
+    - [Upper and Lower Case](#upper-and-lower-case)
+    - [Exercise 12 - 1](#exercise-12---1)
+    - [Date Function](#date-function)
+    - [Month Function](#month-function)
+    - [Year Function](#year-function)
+    - [Exercise 12 - 2](#exercise-12---2)
+  - [Section 13: Challenges](#section-13-challenges)
+    - [Challenge 1](#challenge-1)
+    - [Challenge 2](#challenge-2)
+    - [Challenge 3](#challenge-3)
+    - [Challenge 4](#challenge-4)
+    - [Challenge 5](#challenge-5)
+    - [Challenge 6](#challenge-6)
+    - [Should I break normalization?](#should-i-break-normalization)
 
 ## Section 1: Course Introduction
 
@@ -2946,7 +2968,7 @@ GROUP BY f.name) as rc);
   </strong>
 </div>
 
-## Challenge 6
+### Challenge 6
 How many of our customers have made a booking?
 
 ```sql
