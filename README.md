@@ -2686,3 +2686,87 @@ FROM customers;
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Date Function
+DATE() extracts only the date part from a timestamp.  
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT date('2023-09-22 07:45:32');
+
+SELECT start_time FROM screenings;
+
+SELECT date(start_time) FROM screenings;
+
+SELECT * FROM screenings
+WHERE date(start_time) = '2023-07-08';
+
+SELECT * FROM screenings
+WHERE start_time = '2023-07-08';
+
+SELECT * FROM screenings
+WHERE date(start_time) BETWEEN '2023-07-08' AND '2023-09-09';
+
+SELECT * FROM screenings
+WHERE start_time BETWEEN '2023-07-08' AND '2023-09-09 00:00:00';
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Month Function 
+The **MONTH**() function extracts the month (numeric value) from a given date or datetime.
+- **date_column_or_value** → Can be a date, datetime, or timestamp.
+- **Returns an integer (1-12)** representing the month of the given date.
+
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT month('2023-09-22 07:45:32');
+
+SELECT start_time FROM screenings;
+
+SELECT month(start_time) FROM screenings;
+
+SELECT * FROM screenings
+WHERE month(start_time) = 8;
+
+SELECT month(start_time), count(*) FROM screenings
+GROUP BY month(start_time);
+
+SELECT month(start_time) as month, count(*) FROM screenings
+GROUP BY month;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Year Function 
+- **YEAR**() extracts the year from a date or datetime.
+- Useful for **grouping data by year** or filtering records for a specific year.
+- In this case, it returns **2023** because '**2023**-09-22' is in the year 2023.   
+
+**Practice**
+```sql
+USE cinema_booking_system;
+ 
+SELECT year('2023-09-22 07:45:32');
+
+SELECT start_time FROM screenings;
+
+SELECT year(start_time) FROM screenings;
+
+SELECT * FROM screenings
+WHERE year(start_time) = 2023;
+```
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
