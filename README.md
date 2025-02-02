@@ -2889,3 +2889,20 @@ AND year(start_time) = 2022 AND month(start_time) = 5);
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+### Challenge 4
+Which 5 customers made the most bookings?
+```sql
+SELECT bookings.customer_id, customers.first_name, customers.last_name, count(*) AS no_bookings
+FROM customers
+INNER JOIN bookings ON customers.id = bookings.customer_id
+GROUP BY bookings.customer_id
+ORDER BY no_bookings DESC
+LIMIT 5;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
