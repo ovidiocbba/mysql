@@ -2945,3 +2945,79 @@ GROUP BY f.name) as rc);
     <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
   </strong>
 </div>
+
+## Challenge 6
+How many of our customers have made a booking?
+
+```sql
+SELECT count(*) 
+FROM customers;
+
+SELECT * 
+FROM bookings
+ORDER BY customer_id;
+
+SELECT count(distinct(customer_id)) AS no_of_customers 
+FROM bookings;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
+
+### Should I break normalization?
+```sql
+USE cinema_booking_system;
+ 
+-- In the Chaplin room, which film was shown most often?
+ 
+SELECT * FROM films;
+SELECT * FROM rooms;
+SELECT * FROM screenings;
+
+SELECT f.name, count(*) AS no_screenings 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name
+ORDER BY no_screenings DESC
+LIMIT 1;
+
+
+-- Sub-query solution.
+ 
+SELECT f.name, count(*) AS no_screenings 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name
+HAVING no_screenings =
+(SELECT max(screenings_count) 
+FROM
+(SELECT count(*) AS screenings_count 
+FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN rooms r ON r.id = s.room_id
+WHERE r.name = 'Chaplin'
+GROUP BY f.name) as rc);
+
+
+-- Optimise counting
+
+SELECT * FROM rooms;
+
+SELECT rooms.id, rooms.name, count(*) 
+FROM rooms
+JOIN seats ON seats.room_id = rooms.id
+GROUP BY rooms.id, rooms.name;
+```
+
+<div align="right">
+  <strong>
+    <a href="#table-of-contents" style="text-decoration: none;">↥ Back to top</a>
+  </strong>
+</div>
