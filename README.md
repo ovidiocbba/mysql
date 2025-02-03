@@ -829,7 +829,7 @@ MODIFY COLUMN postcode CHAR(7);
 
 ## Section 5: Data Manipulation Language
 ### Inserting Data Into Tables
-**SQL for 'Inserting Data' into a Table**
+**SQL for 'Inserting Data' into a Table**  
 This command is used to insert new records into a table, specifying values for each column in the table
 ```sql
 INSERT INTO <table_name> (<column1>, <column2>, <column3>, ... <column_n>)
@@ -907,7 +907,7 @@ WHERE coffee_origin = 'Brazil';
 </div>
 
 ### Deleting Data from Tables
-**SQL for 'Deleting Data' from a Table**
+**SQL for 'Deleting Data' from a Table**  
 This command is used to **delete** records from a table based on a **specific condition**.
 ```sql
 DELETE FROM <table_name>  
@@ -1351,7 +1351,7 @@ WHERE gender = 'M' AND phone_number IS NULL;
 </div>
 
 ### In and Not In
-**SQL for 'Selecting Data' with a Condition**
+**SQL for 'Selecting Data' with a Condition**  
 This command retrieves all records from a table where a specific column matches one of multiple given values.
 ```sql
 SELECT * FROM <table_name>  
@@ -1383,7 +1383,7 @@ WHERE first_name NOT IN ('Katie', 'John', 'George');
 </div>
 
 ### Between
-**SQL for 'Selecting Data' with a Range Condition**
+**SQL for 'Selecting Data' with a Range Condition**  
 This command gets all rows from a table where a column's value is inside a given range, including the start and end values.
 ```sql
 SELECT * FROM <table_name>  
@@ -1613,7 +1613,7 @@ ORDER BY customer_id;
 </div>
 
 ### Limit
-**SQL for 'Limiting the Number of Results' in a Query**
+**SQL for 'Limiting the Number of Results' in a Query**  
 The **LIMIT** clause is used to restrict the number of rows returned by a query. This is useful when working with large datasets and when only a specific number of records are needed.
 ```sql
 SELECT * 
